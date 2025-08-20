@@ -73,7 +73,7 @@
             >
                 <li>
                 <a
-                    href="#"
+                    href="/"
                     class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                     aria-current="page"
                     >Beranda</a
@@ -272,7 +272,7 @@
                 </li>
                 <li>
                 <a
-                    href="#"
+                    href="berita"
                     class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                     >Berita</a
                 >
@@ -1009,7 +1009,7 @@
       <div class="container mx-auto px-6 py-12">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" class="flex items-center">
+            <a href="https://creativeculture.disbudpar.bandung.go.id/" class="flex items-center">
               <img
                 src="assets/images/logo-removebg-preview.png"
                 class="h-8 me-3"
