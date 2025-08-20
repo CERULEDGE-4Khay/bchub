@@ -1066,7 +1066,7 @@
                 <h5
                   class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
                 >
-                  Sektor Pejabatg
+                Sektor Pejabatg
                 </h5>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                   Hama bagi para rakyat infdonesia ajafhajksdf
@@ -1183,7 +1183,7 @@
     <section>
       <div class="container mx-auto px-6 py-12">
         <p
-          class="tracking-widest uppercase text-gray-500 mb-10 text-center text-2xl"
+        class="tracking-widest uppercase text-gray-500 mb-10 text-center text-2xl"
         >  List ruangan yang tersedia</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -1195,7 +1195,7 @@
                 class="rounded-t-lg"
                 src="https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_16074.jpeg"
                 alt=""
-              />
+                />
             </a>
             <div class="p-5">
               <a href="#">
@@ -1224,7 +1224,7 @@
                     <path
                       d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
                     />
-                  </svg>
+                  </svg> 5
                   Orang</span
                 >
                 <span
@@ -1291,7 +1291,7 @@
                     <path
                       d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
                     />
-                  </svg>
+                  </svg>6
                   Orang</span
                 >
                 <span
@@ -1358,7 +1358,7 @@
                     <path
                       d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
                     />
-                  </svg>
+                  </svg>8
                   Orang</span
                 >
                 <span
@@ -1425,7 +1425,74 @@
                     <path
                       d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
                     />
+                  </svg>10
+                  Orang</span
+                >
+                <span
+                  type="button"
+                  class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-yellow-300"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
                   </svg>
+                  4/5</span
+                >
+              </div>
+              <a
+                href="#"
+                class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-clifford focus:outline-none dark:focus:ring-blue-800 text-center"
+              >
+                Lihat Detail
+              </a>
+            </div>
+          </div>
+          <div
+          class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
+          >
+            <a href="#">
+              <img
+              class="rounded-t-lg"
+                src="https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_16074.jpeg"
+                alt=""
+                />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                >
+                  Noteworthy technology acquisitions 2021
+                </h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Here are the biggest enterprise technology acquisitions of 2021
+                so far, in reverse chronological order.
+              </p>
+              <div class="flex">
+                <span
+                  type="button"
+                  class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-people-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                    />
+                  </svg>20
                   Orang</span
                 >
                 <span
@@ -1469,7 +1536,7 @@
               <a href="#">
                 <h5
                   class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-                >
+                  >
                   Noteworthy technology acquisitions 2021
                 </h5>
               </a>
@@ -1492,74 +1559,7 @@
                     <path
                       d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
                     />
-                  </svg>
-                  Orang</span
-                >
-                <span
-                  type="button"
-                  class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-star-fill text-yellow-300"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                    />
-                  </svg>
-                  4/5</span
-                >
-              </div>
-              <a
-                href="#"
-                class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-clifford focus:outline-none dark:focus:ring-blue-800 text-center"
-              >
-                Lihat Detail
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-          >
-            <a href="#">
-              <img
-                class="rounded-t-lg"
-                src="https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_16074.jpeg"
-                alt=""
-              />
-            </a>
-            <div class="p-5">
-              <a href="#">
-                <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-                >
-                  Noteworthy technology acquisitions 2021
-                </h5>
-              </a>
-              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order.
-              </p>
-              <div class="flex">
-                <span
-                  type="button"
-                  class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-people-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
-                    />
-                  </svg>
+                  </svg>11
                   Orang</span
                 >
                 <span
@@ -1611,7 +1611,7 @@
                 fill="currentColor"
                 class="bi bi-chevron-double-down"
                 viewBox="0 0 16 16"
-              >
+                >
                 <path
                   fill-rule="evenodd"
                   d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
@@ -1626,6 +1626,204 @@
       </div>
     </section>
 
+    {{-- SCRIPT LIST RUANGAN --}}
+        <script>
+            const ruanganData = [
+            {
+                nama: "Basement dan Area Parkir",
+                kapasitas: "200",
+                deskripsi: "Area ini terletak di dasar Bandung Creative Hub yang berfungsi sebagai parkiran sepeda motor. Meski demikian, area yang dipenuhi mural ini tidak menutup kemungkinan....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_43181.jpeg",
+            },
+            {
+                nama: "Studio Musik (Basement)",
+                kapasitas: "8",
+                deskripsi: "Studio musik yang terletak di lantai dasar ini, merupakan studio musik gratis pertama di Bandung. Fasilitas yang tersedia sesuai standar studio musik pada umumnya...",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_16074.jpeg",
+            },
+            {
+                nama: "Exhibition Area (Lt.1)",
+                kapasitas: "100",
+                deskripsi: "Ruang khusus pameran di Bandung Creative Hub ini berada di lantai 1 gedung. Beragam jenis pameran mulai dari seni rupa, seni kriya, fotografi, DKV, dan pameran lainnya....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_77174.jpeg",
+            },
+            {
+                nama: "Amphitheater (Lt.1)",
+                kapasitas: "100",
+                deskripsi: "Area ini merupakan pintu utama Bandung Creative Hub. Amphitheater dirancang sebagai public space dengan sirkulasi optimal.....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_36915.jpeg",
+            },
+            {
+                nama: "Perpustakaan (Lt.2)",
+                kapasitas: "30",
+                deskripsi: "Perpustakaan Bandung Creative Hub memiliki koleksi 12.000 buku. Koleksi yang terhimpun terdiri dari buku fiksi, non-fiksi, komik, buku anak, majalah, serta buku di rumpun ekonomi kreatif....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_37067.jpeg",
+            },
+            {
+                nama: "Coworking Space (Lt.2)",
+                kapasitas: "14",
+                deskripsi: "Ruangan yang terletak di lantai 2 Bandung Creative Hub ini merupakan coworking space dengan screen, projector, dan AC....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_33730.jpeg",
+            },
+            {
+                nama: "Ruang Kaca (Lt.2)",
+                kapasitas: "30",
+                deskripsi: "Coworking Space lain yang terletak di dekat Amphitheater ini menyuguhkan suasana terbuka dengan kaca di sekelilingnya. Aktivitas seperti coworker serta mini workshop di rumpun ekonomi kreatif bisa sobat selenggarakan di Ruang Kaca....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_99695.jpg",
+            },
+            {
+                nama: "Recording Studio (Lt.3)",
+                kapasitas: "8",
+                deskripsi: "Studio yang terletak di lantai 3 ini merupakan ruang produksi musik di Bandung Creative Hub. Beragam aktivitas rekaman musik baik project solo, duo, band, tapping voice over, dan rekaman berbasis suara bisa diselenggarakan di studio ini....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_56018.jpg",
+            },
+            {
+                nama: "Auditorium (Lt.3)",
+                kapasitas: "150",
+                deskripsi: "Ruangan yang terletak di lantai 3 ini merupakan ruang pertemuan dengan kapasitas paling besar (120) di Bandung Creative Hub. Pemanfaatan Auditorium sepaket dengan screen, projector, speaker, dan amplifier standar bioskop untuk memberi experience terbaik....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_41893.jpeg",
+            },
+            {
+                nama: "Digital Content Studio (Lt.3)",
+                kapasitas: "15",
+                deskripsi: "Studio yang terletak di pojok lantai 3 ini berfungsi sebagai ruang produksi konten digital. Fasilitas yang tersedia di sini berupa perangkat lampu dan white space yang bisa dieksplorasi oleh para kreator konten digital....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_31262.jpg",
+            },
+            {
+                nama: "Studio Tari (Lt.3)",
+                kapasitas: "30",
+                deskripsi: "Studio yang terletak di sebelah Auditorium ini merupakan studio latihan tari tradisional, modern, dan kontemporer. Studio Tari telah dilengkapi dengan kaca dinding....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_15415.jpg",
+            },
+            {
+                nama: "Taman (Lt.4)",
+                kapasitas: "25",
+                deskripsi: "Taman yang terletak di lantai 4 ini merupakan salah satu public space dari Bandung Creative Hub. Area taman merupakan ruang terbuka dengan sirkulasi udara maksimal....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_32571.jpg",
+            },
+            {
+                nama: "Teleconference Room (Lt.4)",
+                kapasitas: "10",
+                deskripsi: "Ruang teleconference merupakan area khusus aktivitas virtual. Aktivitas seperti konferensi pers, virtual meeting, virtual workshop, virtual class, dan beragam aktivitas daring lainnya bisa terselenggara di ruangan yang dilengkapi perangkat webcam & virtual hub ini....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_97529.jpg",
+            },
+            {
+                nama: "Studio Jahit (Lt.4)",
+                kapasitas: "8",
+                deskripsi: "Studio Jahit terletak di dekat taman lantai 4. Studio ini berfungsi sebagai sarana penciptaan olahan kriya dan fesyen jahit. Fasilitas yang tersedia di studio ini....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_78465.jpg",
+            },
+            {
+                nama: "Studio Animasi & Editing (Lt.4)",
+                kapasitas: "10",
+                deskripsi: "Studio Animasi dan Editing berada di dekat taman lantai 4. Studio ini memiliki berfungsi untuk penciptaan animasi, desain grafis, serta editing video....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_81700.jpg",
+            },
+            {
+                nama: "Studio Fesyen (Lt.5)",
+                kapasitas: "30",
+                deskripsi: "Studio yang terletak di lantai 5 ini merupakan ruang khusus aktivitas fesyen. Berbagai aktivitas berkaitan fesyen seperti modeling class, makeup class....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_47114.jpg",
+            },
+            {
+                nama: "Aula (Lt.5)",
+                kapasitas: "80",
+                deskripsi: "Aula yang terletak di lantai 5 Bandung Creative Hub ini merupakan ruang pertemuan berkapasitas maksimal 60 orang. Berbagai aktivitas mulai dari seminar....",
+                imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_62113.jpg",
+            },
+            ];
+    
+            const grid = document.getElementById("ruanganGrid");
+            const loadMoreBtn = document.getElementById("loadMoreBtn");
+            let itemsPerPage = 6;
+            let currentIndex = 0;
+    
+            function renderItem() {
+            const nextItem = ruanganData.slice(currentIndex, currentIndex + itemsPerPage);
+            nextItem.forEach((item) => {
+                const card = document.createElement("div");
+    
+                card.className = "bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700";
+    
+                card.innerHTML = `
+                        <a href="#">
+                        <img
+                            class="rounded-t-lg"
+                            src="${item.imgUrl}"
+                            alt=""
+                        />
+                        </a>
+                        
+                        <div class="p-5">
+                        <a href="#">
+                            <h5
+                            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                            >
+                            ${item.nama}
+                            </h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                            ${item.deskripsi}
+                        </p>
+                        <div class="flex">
+                            <span
+                            type="button"
+                            class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-people-fill"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                                />
+                            </svg>
+                            ${item.kapasitas} Orang</span
+                            >
+                            <span
+                            type="button"
+                            class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                            >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-star-fill text-yellow-300"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                                />
+                            </svg>
+                            4/5</span
+                            >
+                        </div>
+                        <a
+                            href="#"
+                            class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-clifford focus:outline-none dark:focus:ring-blue-800 text-center"
+                        >
+                            Lihat Detail
+                        </a>
+                        </div>
+                    `;
+                grid.appendChild(card);
+            });
+    
+            currentIndex += itemsPerPage;
+            if (currentIndex >= ruanganData.length) {
+                loadMoreBtn.style.display = "none";
+            }
+            }
+    
+            loadMoreBtn.addEventListener("click", renderItem);
+            renderItem();
+    
+        </script>
+    {{-- FOOTER --}}
     <footer class="bg-gray-200 dark:bg-gray-900">
       <div class="container mx-auto px-6 py-12">
         <div class="md:flex md:justify-between">
@@ -1657,23 +1855,23 @@
                 </li>
                 <li>
                   <a href="https://tailwindcss.com/" class="hover:underline"
-                    >Tailwind CSS</a
+                  >Tailwind CSS</a
                   >
                 </li>
               </ul>
             </div>
             <div>
               <h2
-                class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
               >
                 Follow us
               </h2>
               <ul class="text-gray-500 dark:text-gray-400 font-medium">
                 <li class="mb-4">
                   <a
-                    href="https://github.com/themesberg/flowbite"
-                    class="hover:underline"
-                    >Github</a
+                  href="https://github.com/themesberg/flowbite"
+                  class="hover:underline"
+                  >Github</a
                   >
                 </li>
                 <li>
@@ -1704,7 +1902,7 @@
         </div>
         <hr
           class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
-        />
+          />
         <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
             >© 2023
@@ -1758,7 +1956,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 17"
-              >
+                >
                 <path
                   fill-rule="evenodd"
                   d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
@@ -1782,7 +1980,7 @@
                   fill-rule="evenodd"
                   d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
                   clip-rule="evenodd"
-                />
+                  />
               </svg>
               <span class="sr-only">GitHub account</span>
             </a>
@@ -1809,203 +2007,6 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      const ruanganData = [
-        {
-          nama: "Basement dan Area Parkir",
-          kapasitas: "200 Orang",
-          deskripsi: "Area ini terletak di dasar Bandung Creative Hub yang berfungsi sebagai parkiran sepeda motor. Meski demikian, area yang dipenuhi mural ini tidak menutup kemungkinan....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_43181.jpeg",
-        },
-        {
-          nama: "Studio Musik (Basement)",
-          kapasitas: "8 Orang",
-          deskripsi: "Studio musik yang terletak di lantai dasar ini, merupakan studio musik gratis pertama di Bandung. Fasilitas yang tersedia sesuai standar studio musik pada umumnya...",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_16074.jpeg",
-        },
-        {
-          nama: "Exhibition Area (Lt.1)",
-          kapasitas: "100 Orang",
-          deskripsi: "Ruang khusus pameran di Bandung Creative Hub ini berada di lantai 1 gedung. Beragam jenis pameran mulai dari seni rupa, seni kriya, fotografi, DKV, dan pameran lainnya....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_77174.jpeg",
-        },
-        {
-          nama: "Amphitheater (Lt.1)",
-          kapasitas: "100 Orang",
-          deskripsi: "Area ini merupakan pintu utama Bandung Creative Hub. Amphitheater dirancang sebagai public space dengan sirkulasi optimal.....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_36915.jpeg",
-        },
-        {
-          nama: "Perpustakaan (Lt.2)",
-          kapasitas: "30 Orang",
-          deskripsi: "Perpustakaan Bandung Creative Hub memiliki koleksi 12.000 buku. Koleksi yang terhimpun terdiri dari buku fiksi, non-fiksi, komik, buku anak, majalah, serta buku di rumpun ekonomi kreatif....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_37067.jpeg",
-        },
-        {
-          nama: "Coworking Space (Lt.2)",
-          kapasitas: "14 Orang",
-          deskripsi: "Ruangan yang terletak di lantai 2 Bandung Creative Hub ini merupakan coworking space dengan screen, projector, dan AC....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_33730.jpeg",
-        },
-        {
-          nama: "Ruang Kaca (Lt.2)",
-          kapasitas: "30 Orang",
-          deskripsi: "Coworking Space lain yang terletak di dekat Amphitheater ini menyuguhkan suasana terbuka dengan kaca di sekelilingnya. Aktivitas seperti coworker serta mini workshop di rumpun ekonomi kreatif bisa sobat selenggarakan di Ruang Kaca....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_99695.jpg",
-        },
-        {
-          nama: "Recording Studio (Lt.3)",
-          kapasitas: "8 Orang",
-          deskripsi: "Studio yang terletak di lantai 3 ini merupakan ruang produksi musik di Bandung Creative Hub. Beragam aktivitas rekaman musik baik project solo, duo, band, tapping voice over, dan rekaman berbasis suara bisa diselenggarakan di studio ini....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_56018.jpg",
-        },
-        {
-          nama: "Auditorium (Lt.3)",
-          kapasitas: "150 Orang",
-          deskripsi: "Ruangan yang terletak di lantai 3 ini merupakan ruang pertemuan dengan kapasitas paling besar (120) di Bandung Creative Hub. Pemanfaatan Auditorium sepaket dengan screen, projector, speaker, dan amplifier standar bioskop untuk memberi experience terbaik....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_41893.jpeg",
-        },
-        {
-          nama: "Digital Content Studio (Lt.3)",
-          kapasitas: "15 Orang",
-          deskripsi: "Studio yang terletak di pojok lantai 3 ini berfungsi sebagai ruang produksi konten digital. Fasilitas yang tersedia di sini berupa perangkat lampu dan white space yang bisa dieksplorasi oleh para kreator konten digital....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_31262.jpg",
-        },
-        {
-          nama: "Studio Tari (Lt.3)",
-          kapasitas: "30 Orang",
-          deskripsi: "Studio yang terletak di sebelah Auditorium ini merupakan studio latihan tari tradisional, modern, dan kontemporer. Studio Tari telah dilengkapi dengan kaca dinding....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_15415.jpg",
-        },
-        {
-          nama: "Taman (Lt.4)",
-          kapasitas: "25 Orang",
-          deskripsi: "Taman yang terletak di lantai 4 ini merupakan salah satu public space dari Bandung Creative Hub. Area taman merupakan ruang terbuka dengan sirkulasi udara maksimal....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_32571.jpg",
-        },
-        {
-          nama: "Teleconference Room (Lt.4)",
-          kapasitas: "10 Orang",
-          deskripsi: "Ruang teleconference merupakan area khusus aktivitas virtual. Aktivitas seperti konferensi pers, virtual meeting, virtual workshop, virtual class, dan beragam aktivitas daring lainnya bisa terselenggara di ruangan yang dilengkapi perangkat webcam & virtual hub ini....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_97529.jpg",
-        },
-        {
-          nama: "Studio Jahit (Lt.4)",
-          kapasitas: "8 Orang",
-          deskripsi: "Studio Jahit terletak di dekat taman lantai 4. Studio ini berfungsi sebagai sarana penciptaan olahan kriya dan fesyen jahit. Fasilitas yang tersedia di studio ini....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_78465.jpg",
-        },
-        {
-          nama: "Studio Animasi & Editing (Lt.4)",
-          kapasitas: "10 Orang",
-          deskripsi: "Studio Animasi dan Editing berada di dekat taman lantai 4. Studio ini memiliki berfungsi untuk penciptaan animasi, desain grafis, serta editing video....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_81700.jpg",
-        },
-        {
-          nama: "Studio Fesyen (Lt.5)",
-          kapasitas: "30 Orang",
-          deskripsi: "Studio yang terletak di lantai 5 ini merupakan ruang khusus aktivitas fesyen. Berbagai aktivitas berkaitan fesyen seperti modeling class, makeup class....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_47114.jpg",
-        },
-        {
-          nama: "Aula (Lt.5)",
-          kapasitas: "80 Orang",
-          deskripsi: "Aula yang terletak di lantai 5 Bandung Creative Hub ini merupakan ruang pertemuan berkapasitas maksimal 60 orang. Berbagai aktivitas mulai dari seminar....",
-          imgUrl: "https://creativeculture.disbudpar.bandung.go.id//files/img/fasilitas/GALERI_INFORMASI_62113.jpg",
-        },
-      ];
-
-      const grid = document.getElementById("ruanganGrid");
-      const loadMoreBtn = document.getElementById("loadMoreBtn");
-      let itemsPerPage = 6;
-      let currentIndex = 0;
-
-      function renderItem() {
-        const nextItem = ruanganData.slice(currentIndex, currentIndex + itemsPerPage);
-        nextItem.forEach((item) => {
-          const card = document.createElement("div");
-
-          card.className = "bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700";
-
-          card.innerHTML = `
-                  <a href="#">
-                    <img
-                      class="rounded-t-lg"
-                      src="${item.imgUrl}"
-                      alt=""
-                    />
-                  </a>
-                  
-                  <div class="p-5">
-                    <a href="#">
-                      <h5
-                        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-                      >
-                        ${item.nama}
-                      </h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      ${item.deskripsi}
-                    </p>
-                    <div class="flex">
-                      <span
-                        type="button"
-                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
-                        ><svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-people-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
-                          />
-                        </svg>
-                      ${item.kapasitas} Orang</span
-                      >
-                      <span
-                        type="button"
-                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-star-fill text-yellow-300"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
-                          />
-                        </svg>
-                        4/5</span
-                      >
-                    </div>
-                    <a
-                      href="#"
-                      class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-clifford focus:outline-none dark:focus:ring-blue-800 text-center"
-                    >
-                      Lihat Detail
-                    </a>
-                  </div>
-                `;
-          grid.appendChild(card);
-        });
-
-        currentIndex += itemsPerPage;
-        if (currentIndex >= ruanganData.length) {
-          loadMoreBtn.style.display = "none";
-        }
-      }
-
-      loadMoreBtn.addEventListener("click", renderItem);
-      renderItem();
-
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
