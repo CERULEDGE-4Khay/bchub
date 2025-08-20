@@ -295,11 +295,24 @@
             </div>
         </div>
     </nav>
-
+    {{-- hero --}}
     <div
         class="h-screen bg-opacity-75 flex justify-starts items-center"
-        style="background-color:"
-      >
+         style="
+            background:
+            radial-gradient(circle at 25% 30%, rgba(250,204,21,0.6), transparent 60%),   /* kuning */
+            radial-gradient(circle at 75% 35%, rgba(59,130,246,0.6), transparent 65%),   /* biru */
+            radial-gradient(circle at 40% 70%, rgba(34,197,94,0.6), transparent 60%),    /* hijau */
+            radial-gradient(circle at 70% 75%, rgba(249,115,22,0.6), transparent 65%),   /* orange */
+            conic-gradient(
+                from 90deg at 50% 50%,
+                rgba(250,204,21,0.3),
+                rgba(59,130,246,0.3),
+                rgba(34,197,94,0.3),
+                rgba(249,115,22,0.3),
+                rgba(250,204,21,0.3)
+            );
+            background-color: #ffffff;">
         <div class="text-black px-6 md:px-12 container mx-auto text-center">
           <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
             <span class="block text-sky-600">Berita</span>
@@ -321,22 +334,22 @@
 
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
             >Bandung Creative HUB</a
           >
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
             >Padepokan Seni Mayang Sunda</a
           >
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
             >Teras Sunda Cibiru</a
           >
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
             >Kampung Wisata Pasir Kunci</a
           >
         </div>
@@ -682,7 +695,7 @@
 
     const grid = document.getElementById("ruanganGrid");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
-    let itemsPerPage = 6;
+    let itemsPerPage = 3;
     let currentIndex = 0;
 
     function renderItem() {
