@@ -9,6 +9,9 @@ Route::get('/', function () {
 Route::get('berita', function () {
     return view('berita');
 });
+Route::get('lihatdetail', function () {
+    return view('lihatdetail');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
