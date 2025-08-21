@@ -13,6 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\Role::insert([
+            ['name' => 'user'],
+            ['name' => 'admin']
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'updt',
+            'email' => 'updt@gmail.com',
+            'password' => bcrypt('password'),
+            'role_id' => 2
+        ]);
+
         $users = \App\Models\User::factory()->count(3)->create();
 
         $rooms = \App\Models\Room::insert([

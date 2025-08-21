@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -51,5 +52,19 @@ class User extends Authenticatable
     public function booking()
     {
         return $this->hasOne(Booking::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($user) {
+            if (!$user->role_id) {
+                $user->role_id = Role::where('name', 'user')->first()->id;
+            }
+        });
     }
 }
