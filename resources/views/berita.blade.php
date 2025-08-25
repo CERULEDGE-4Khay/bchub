@@ -2,64 +2,45 @@
 @section('content')
 
 {{-- hero --}}
-<div
-class="h-screen bg-opacity-75 flex justify-starts items-center"
-style="
-        background:
-        radial-gradient(circle at 25% 30%, rgba(250,204,21,0.6), transparent 60%),   /* kuning */
-        radial-gradient(circle at 75% 35%, rgba(59,130,246,0.6), transparent 65%),   /* biru */
-        radial-gradient(circle at 40% 70%, rgba(34,197,94,0.6), transparent 60%),    /* hijau */
-        radial-gradient(circle at 70% 75%, rgba(249,115,22,0.6), transparent 65%),   /* orange */
-        conic-gradient(
-            from 90deg at 50% 50%,
-            rgba(250,204,21,0.3),
-            rgba(59,130,246,0.3),
-            rgba(34,197,94,0.3),
-            rgba(249,115,22,0.3),
-            rgba(250,204,21,0.3)
-        );
-        background-color: #ffffff;">
-    <div class="text-black px-6 md:px-12 container mx-auto text-center">
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
-        <span class="block text-sky-600">Berita</span>
-        Seputar Informasi UPTD Padepokan Seni, Kreativitas dan Kebudayaan
-      </h1>
-      
-        <form class="max-w-md mx-auto mb-4">   
-            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                    </svg>
-                </div>
-                <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari Berita..." required />
-                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-            </div>
-        </form>
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-br from-green-200 via-blue-200 to-purple-200 animate-gradient">
+  <!-- Animated particles background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="w-3 h-3 bg-white rounded-full opacity-30 animate-bounce-slow absolute top-10 left-1/4"></div>
+    <div class="w-2 h-2 bg-yellow-300 rounded-full opacity-40 animate-bounce-slow absolute bottom-20 right-1/3"></div>
+  </div>
 
-      <a
-        href="#join-us"
-        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl font-medium rounded-lg transition duration-300"
-        >Bandung Creative HUB</a
-      >
-      <a
-        href="#join-us"
-        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl font-medium rounded-lg transition duration-300"
-        >Padepokan Seni Mayang Sunda</a
-      >
-      <a
-        href="#join-us"
-        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl font-medium rounded-lg transition duration-300"
-        >Teras Sunda Cibiru</a
-      >
-      <a
-        href="#join-us"
-        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-sky-500 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl font-medium rounded-lg transition duration-300"
-        >Kampung Wisata Pasir Kunci</a
-      >
+  <!-- Title -->
+  <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeInUp">
+    Seputar Informasi UPTD <br>
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">
+      Seni, Kreativitas, dan Kebudayaan
+    </span>
+  </h2>
+
+  <!-- Search -->
+  <div class="flex w-full max-w-lg bg-white rounded-full shadow-lg overflow-hidden mb-6 animate-fadeInUp delay-200">
+    <span class="flex items-center px-3 text-gray-400"><i class="fas fa-search"></i></span>
+    <input type="text" placeholder="Cari Berita..." class="flex-1 px-4 py-3 outline-none"/>
+    <button class="bg-blue-500 text-white px-6 py-3 hover:bg-blue-600">Search</button>
+  </div>
+
+  <!-- Categories -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 animate-fadeInUp delay-300">
+    <div class="p-4 bg-white rounded-xl shadow hover:scale-105 hover:bg-gradient-to-r hover:from-blue-400 hover:to-green-400 transition transform duration-300 text-center">
+      🎭 <p class="mt-2 font-semibold">Bandung Creative HUB</p>
     </div>
-</div>
+    <div class="p-4 bg-white rounded-xl shadow hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-red-400 transition transform duration-300 text-center">
+      🎶 <p class="mt-2 font-semibold">Padepokan Seni Mayang Sunda</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl shadow hover:scale-105 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 transition transform duration-300 text-center">
+      🏛 <p class="mt-2 font-semibold">Teras Sunda Cibiru</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl shadow hover:scale-105 hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400 transition transform duration-300 text-center">
+      🌿 <p class="mt-2 font-semibold">Kampung Wisata Pasir Kunci</p>
+    </div>
+  </div>
+</section>
+
 
     {{-- Daftar Berita --}}
 <section>
