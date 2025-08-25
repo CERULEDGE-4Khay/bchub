@@ -28,7 +28,17 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'brand' => 'string',
+            'serial_number' => 'string',
+            'condition' => 'required',
+            'status' => 'required'
+        ]);
+
+        Inventory::create($validatedData);
+
+        return redirect()->to('')->with('success', 'Inventory berhasil ditambahkan!');
     }
 
     /**
