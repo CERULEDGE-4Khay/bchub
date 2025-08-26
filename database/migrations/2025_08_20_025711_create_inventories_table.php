@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('serial_number')->nullable();
             $table->enum('condition', ['good', 'damaged', 'maintenance'])->default('good');
             $table->enum('status', ['available', 'in_use', 'reserved'])->default('available');
+            $table->integer('quantity')->default(1);
             $table->timestamps();
         });
     }

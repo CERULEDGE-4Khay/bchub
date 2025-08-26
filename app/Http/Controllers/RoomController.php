@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -13,7 +14,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::all();
+        return view('dashboard.admin.room.index', compact('rooms'));
     }
 
     /**
@@ -21,7 +23,8 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $inventories = Inventory::all();
+        return view('dashboard.admin.room.create', compact('inventories'));
     }
 
     /**
@@ -29,17 +32,50 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string',
-            'description' => 'required',
-            'capacity' => 'required'
+        $validated = $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'capacity'    => 'required|integer|min:1',
+            'floor'       => 'required|string',
+            'inventories' => 'nullable|array', // checkboxes
+            'inventories_qty' => 'nullable|array', // input qty
         ]);
 
-        $room = Room::create($validatedData);
-        $inventory = Inventory::where('name', $request->inventory_name);
-        $room->inventories->attach($inventory->id, ['quantity' => 2]);
+        DB::transaction(function () use ($validated) {
+            // Buat room
+            $room = Room::create([
+                'name'        => $validated['name'],
+                'description' => $validated['description'] ?? null,
+                'capacity'    => $validated['capacity'],
+                'floor'       => $validated['floor'],
+            ]);
 
-        return redirect()->to('')->with('success', 'Ruangan berhasil ditambahkan!');
+            // Jika ada inventaris dipilih
+            if (!empty($validated['inventories'])) {
+                foreach ($validated['inventories'] as $inventoryId => $checked) {
+                    $qty = $validated['inventories_qty'][$inventoryId] ?? 0;
+
+                    if ($qty > 0) {
+                        $inventory = Inventory::findOrFail($inventoryId);
+
+                        // Cek stok cukup
+                        if ($inventory->quantity < $qty) {
+                            throw new \Exception("Stok {$inventory->name} tidak mencukupi.");
+                        }
+
+                        // Kurangi stok global
+                        $inventory->decrement('quantity', $qty);
+
+                        // Simpan pivot
+                        $room->inventories()->attach($inventoryId, [
+                            'quantity' => $qty,
+                        ]);
+                    }
+                }
+            }
+        });
+
+        return redirect()->route('rooms.index')->with('success', 'Room berhasil dibuat.');
     }
 
     /**

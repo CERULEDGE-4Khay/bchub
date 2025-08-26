@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->unsignedInteger('capacity')->default(1);
+            $table->string('floor');
             $table->timestamps();
         });
     }

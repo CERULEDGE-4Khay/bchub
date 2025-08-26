@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
         Route::get('/', function() {
             return view('dashboard.admin.index');
         })->name('dashboard.admin');
+
+        Route::resource('rooms', RoomController::class);
     });
 });
 

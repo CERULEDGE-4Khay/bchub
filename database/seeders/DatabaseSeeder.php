@@ -28,9 +28,9 @@ class DatabaseSeeder extends Seeder
         $users = \App\Models\User::factory()->count(3)->create();
 
         $rooms = \App\Models\Room::insert([
-            ['name' => 'Studio Musik Basement', 'description' => 'Studio musik pertama di Bandung', 'capacity' => 8],
-            ['name' => 'Studio Tari Lantai 2', 'description' => 'Ruang tari luas untuk 20 orang', 'capacity' => 20],
-            ['name' => 'Studio Teater', 'description' => 'Ruang teater mini untuk latihan drama', 'capacity' => 15],
+            ['name' => 'Studio Musik Basement', 'description' => 'Studio musik pertama di Bandung', 'capacity' => 8, 'floor' => 'Basement'],
+            ['name' => 'Studio Tari Lantai 2', 'description' => 'Ruang tari luas untuk 20 orang', 'capacity' => 20, 'floor' => '2'],
+            ['name' => 'Studio Teater', 'description' => 'Ruang teater mini untuk latihan drama', 'capacity' => 15, 'floor' => '2'],
         ]);
 
         $rooms = \App\Models\Room::all();
@@ -41,28 +41,32 @@ class DatabaseSeeder extends Seeder
                 'brand' => 'fender',
                 'serial_number' => 'asdasd',
                 'condition' => 'good',
-                'status' => 'available'
+                'status' => 'available',
+                'quantity' => 10
             ],
             [
                 'name' => 'Gitar Elektrik',
                 'brand' => 'fender',
                 'serial_number' => 'asdasd',
                 'condition' => 'good',
-                'status' => 'available'
+                'status' => 'available',
+                'quantity' => 10
             ],
             [
                 'name' => 'Keyboard',
                 'brand' => 'fender',
                 'serial_number' => 'asdasd',
                 'condition' => 'good',
-                'status' => 'available'
+                'status' => 'available',
+                'quantity' => 10
             ],
             [
                 'name' => 'Amplifier',
                 'brand' => 'BlackStar',
                 'serial_number' => 'asdasd',
                 'condition' => 'good',
-                'status' => 'available'
+                'status' => 'available',
+                'quantity' => 10
             ],
         ]);
 
@@ -76,10 +80,10 @@ class DatabaseSeeder extends Seeder
 
         // Hubungkan Room dengan Inventory lewat pivot
         $room1->inventories()->attach($drum->id, ['quantity' => 1]);
-        $room1->inventories()->attach($guitar->id, ['quantity' => 2]);
+        $room1->inventories()->attach($guitar->id, ['quantity' => 1]);
         $room1->inventories()->attach($amp->id, ['quantity' => 1]);
 
-        $room2->inventories()->attach($guitar->id, ['quantity' => 5]);
+        $room2->inventories()->attach($guitar->id);
 
         \App\Models\Booking::create([
             'user_id'    => $users[0]->id,
