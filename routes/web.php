@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -26,6 +27,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
         })->name('dashboard.admin');
 
         Route::resource('rooms', RoomController::class);
+        Route::resource('inventories', InventoryController::class);
     });
 });
 

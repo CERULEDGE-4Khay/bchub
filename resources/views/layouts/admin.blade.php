@@ -35,6 +35,36 @@
       @yield('content')
     </div>
   </main>
+
+{{-- Success Message --}}
+@if (session('success'))
+  <div id="alert-success"
+       class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-md z-50">
+    {{ session('success') }}
+  </div>
+@endif
+
+{{-- Error Message --}}
+@if ($errors->any())
+  <div id="alert-error"
+       class="fixed top-5 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-md z-50">
+    <ul class="list-disc list-inside text-sm">
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+<script>
+  setTimeout(() => {
+    const successBox = document.getElementById('alert-success');
+    const errorBox = document.getElementById('alert-error');
+    if (successBox) successBox.remove();
+    if (errorBox) errorBox.remove();
+  }, 3000); // 3 detik
+</script>
+
+
 <!-- plugin for charts  -->
   <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}" async></script>
   <!-- plugin for scrollbar  -->
