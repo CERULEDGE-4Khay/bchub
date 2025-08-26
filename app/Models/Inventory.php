@@ -15,4 +15,10 @@ class Inventory extends Model
                     ->withTimestamps();
     }
 
+    // Accessor stok tersedia
+    public function getAvailableStockAttribute()
+    {
+        $used = $this->rooms()->sum('inventory_room.quantity');
+        return $this->quantity - $used;
+    }
 }

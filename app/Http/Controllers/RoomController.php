@@ -33,16 +33,16 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'        => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'capacity'    => 'required|integer|min:1',
-            'floor'       => 'required|string',
-            'inventories' => 'nullable|array', // checkboxes
-            'inventories_qty' => 'nullable|array', // input qty
+            'name'             => 'required|string|max:255',
+            'description'      => 'nullable|string',
+            'capacity'         => 'required|integer|min:1',
+            'floor'            => 'required|string',
+            'inventories'      => 'nullable|array',
+            'inventories_qty'  => 'nullable|array',
         ]);
 
         DB::transaction(function () use ($validated) {
-            // Buat room
+            // Buat room baru
             $room = Room::create([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
@@ -50,33 +50,25 @@ class RoomController extends Controller
                 'floor'       => $validated['floor'],
             ]);
 
-            // Jika ada inventaris dipilih
+            // Simpan pivot inventory_room
             if (!empty($validated['inventories'])) {
+                $inventoriesToAttach = [];
+
                 foreach ($validated['inventories'] as $inventoryId => $checked) {
                     $qty = $validated['inventories_qty'][$inventoryId] ?? 0;
 
                     if ($qty > 0) {
-                        $inventory = Inventory::findOrFail($inventoryId);
-
-                        // Cek stok cukup
-                        if ($inventory->quantity < $qty) {
-                            throw new \Exception("Stok {$inventory->name} tidak mencukupi.");
-                        }
-
-                        // Kurangi stok global
-                        $inventory->decrement('quantity', $qty);
-
-                        // Simpan pivot
-                        $room->inventories()->attach($inventoryId, [
-                            'quantity' => $qty,
-                        ]);
+                        $inventoriesToAttach[$inventoryId] = ['quantity' => $qty];
                     }
                 }
+
+                $room->inventories()->attach($inventoriesToAttach);
             }
         });
 
         return redirect()->route('rooms.index')->with('success', 'Room berhasil dibuat.');
     }
+
 
     /**
      * Display the specified resource.
@@ -91,7 +83,12 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        //
+        $inventories = Inventory::all();
+
+        // bikin array [inventory_id => qty]
+        $roomInventories = $room->inventories->pluck('pivot.quantity', 'id')->toArray();
+
+        return view('dashboard.admin.room.edit', compact('room', 'inventories', 'roomInventories'));
     }
 
     /**
@@ -99,14 +96,54 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        $validated = $request->validate([
+            'name'             => 'required|string|max:255',
+            'description'      => 'nullable|string',
+            'capacity'         => 'required|integer|min:1',
+            'floor'            => 'required|string',
+            'inventories'      => 'nullable|array',
+            'inventories_qty'  => 'nullable|array',
+        ]);
+
+        DB::transaction(function () use ($validated, $room) {
+            // Update data room
+            $room->update([
+                'name'        => $validated['name'],
+                'description' => $validated['description'] ?? null,
+                'capacity'    => $validated['capacity'],
+                'floor'       => $validated['floor'],
+            ]);
+
+            $inventoriesToSync = [];
+
+            if (!empty($validated['inventories'])) {
+                foreach ($validated['inventories'] as $inventoryId => $checked) {
+                    $qty = $validated['inventories_qty'][$inventoryId] ?? 0;
+
+                    if ($qty > 0) {
+                        $inventoriesToSync[$inventoryId] = ['quantity' => $qty];
+                    }
+                }
+            }
+
+            // Sync pivot inventory_room
+            $room->inventories()->sync($inventoriesToSync);
+        });
+
+        return redirect()->route('rooms.index')->with('success', 'Room berhasil diperbarui.');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room)
+    public function destroy(Room $room, Inventory $inventory)
     {
-        //
+        DB::transaction(function () use ($room) {
+            $room->inventories()->detach();
+            $room->delete();
+        });
+        return redirect()->route('rooms.index')->with('success', 'Room berhasil dihapus.');
     }
 }
