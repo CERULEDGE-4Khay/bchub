@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\InventoryItem;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -29,20 +30,29 @@ class InventoryController extends Controller
      * Store a newly created resource in storage.
      */
      public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'brand' => 'nullable|string|max:255',
-            'serial_number' => 'nullable|string|max:255',
-            'condition' => 'required|in:good,damaged,maintenance',
-            'status' => 'required|in:available,in_use,reserved',
-            'quantity' => 'required|integer|min:1'
-        ]);
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'items.*.brand' => 'nullable|string|max:255',
+        'items.*.serial_number' => 'nullable|string|max:255',
+        'items.*.condition' => 'required|in:good,damaged,maintenance',
+        'items.*.status' => 'required|in:available,in_use,reserved',
+    ]);
 
-        Inventory::create($validatedData);
+    // Buat inventory utama
+    $inventory = Inventory::create([
+        'name' => $request->name,
+        'quantity' => count($request->items),
+    ]);
 
-        return redirect()->route('inventories.index')->with('success', 'Inventory berhasil ditambahkan!');
+    // Buat detail item
+    foreach ($request->items as $item) {
+        $inventory->items()->create($item);
     }
+
+    return redirect()->route('inventories.index')->with('success','Inventory berhasil ditambahkan!');
+}
+
 
     /**
      * Display the specified resource.
@@ -60,21 +70,34 @@ class InventoryController extends Controller
         return view('dashboard.admin.inventory.edit', compact('inventory'));
     }
 
-    public function update(Request $request, Inventory $inventory)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'brand' => 'nullable|string|max:255',
-            'serial_number' => 'nullable|string|max:255',
-            'condition' => 'required|in:good,damaged,maintenance',
-            'status' => 'required|in:available,in_use,reserved',
-            'quantity' => 'required|integer|min:1'
-        ]);
+public function update(Request $request, Inventory $inventory)
+{
+    // Validasi data
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'quantity' => 'required|integer|min:1',
+        'items' => 'required|array',
+        'items.*.brand' => 'nullable|string|max:255',
+        'items.*.serial_number' => 'nullable|string|max:255',
+        'items.*.condition' => 'required|in:good,damaged,maintenance',
+        'items.*.status' => 'required|in:available,in_use,reserved',
+    ]);
 
-        $inventory->update($validatedData);
+    // Update inventory utama
+    $inventory->update([
+        'name' => $validatedData['name'],
+        'quantity' => $validatedData['quantity'],
+    ]);
 
-        return redirect()->route('inventories.index')->with('success', 'Inventory berhasil diperbarui!');
+    // Hapus item lama lalu simpan ulang (simple approach)
+    $inventory->items()->delete();
+
+    foreach ($validatedData['items'] as $itemData) {
+        $inventory->items()->create($itemData);
     }
+
+    return redirect()->route('inventories.index')->with('success', 'Inventory & items berhasil diperbarui!');
+}
 
     public function destroy(Inventory $inventory)
     {

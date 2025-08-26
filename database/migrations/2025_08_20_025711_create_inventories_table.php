@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('brand')->nullable(); 
-            $table->string('serial_number')->nullable();
-            $table->enum('condition', ['good', 'damaged', 'maintenance'])->default('good');
-            $table->enum('status', ['available', 'in_use', 'reserved'])->default('available');
+            $table->string('name');        
             $table->integer('quantity')->default(1);
             $table->timestamps();
         });

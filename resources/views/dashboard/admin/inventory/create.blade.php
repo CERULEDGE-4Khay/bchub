@@ -1,88 +1,200 @@
-@extends('layouts.admin') @section('content')
+{{-- @extends('layouts.admin') @section('content')
 
 <div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Tambah Item Inventory</h5>
   <form action="{{ route('inventories.store') }}" method="POST">
-    @csrf
-    <div class="mb-3">
-      <div class="mb-5">
-        <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-        <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="name">
+  @csrf
+  <div class="mb-5">
+    <label class="block mb-2 text-sm font-medium">Nama Inventaris</label>
+    <input type="text" name="name" class="border rounded w-full p-2" required>
+  </div>
+
+  <div id="items-wrapper">
+    <div class="item-form border p-4 mb-3 rounded bg-gray-50">
+      <h4 class="font-semibold mb-2">Item #1</h4>
+      <div class="mb-2">
+        <label class="text-sm">Brand</label>
+        <input type="text" name="items[0][brand]" class="border rounded w-full p-2">
       </div>
-      <div class="mb-5">
-        <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Brand/Merk</label>
-        <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="brand">
+      <div class="mb-2">
+        <label class="text-sm">Nomor Seri</label>
+        <input type="text" name="items[0][serial_number]" class="border rounded w-full p-2">
       </div>
-      <div class="mb-5">
-        <label for="kapasitas"  class="block mb-2 text-sm font-medium text-gray-900">Nomor Seri</label>
-        <input type="number" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="serial_number">
-      </div>
-      {{-- <div class="mb-5">
-        <label for="fasilitas" class="block mb-2 text-sm font-medium text-gray-900">Kondisi</label>
-        <div class="overflow-x-auto rounded border">
-            <table class="w-full text-sm text-left text-gray-700">
-            <thead class="text-xs uppercase bg-gray-100 text-gray-600">
-                <tr>
-                <th class="px-4 py-2">Pilih</th>
-                <th class="px-4 py-2">Kondisi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($inventories as $inventory)
-                <tr class="border-b">
-                    <td class="px-4 py-2">
-                    <input type="checkbox" name="inventories[{{ $inventory->id }}]" value="1"
-                        class="w-4 h-4 text-blue-600 border-gray-300 rounded">
-                    </td>
-                    <td class="px-4 py-2">
-                    {{ $inventory->condition }}
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-            </table>
-        </div>
-      </div> --}}
-      <div class="mb-5">
-        <label for="condition" class="block mb-2 text-sm font-medium text-gray-900">Kondisi</label>
-        <select name="condition" id="condition"
-            class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-blue-500 focus:border-blue-500">
-            <option value="good">Good</option>
-            <option value="damaged">Damaged</option>
-            <option value="maintenance">Maintenance</option>
+      <div class="mb-2">
+        <label class="text-sm">Kondisi</label>
+        <select name="items[0][condition]" class="border rounded w-full p-2">
+          <option value="good">Good</option>
+          <option value="damaged">Damaged</option>
+          <option value="maintenance">Maintenance</option>
         </select>
-        </div>
-
-        <div class="mb-5">
-        <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
-        <select name="status" id="status"
-            class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-blue-500 focus:border-blue-500">
-            <option value="available">Available</option>
-            <option value="in_use">In Use</option>
-            <option value="reserved">Reserved</option>
-        </select>
-        </div>
-
-        <div class="mb-5">
-        <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900">Jumlah</label>
-        <input type="number" name="quantity" id="quantity" value="1" min="1"
-            class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:ring-blue-500 focus:border-blue-500">
       </div>
-
+      <div class="mb-2">
+        <label class="text-sm">Status</label>
+        <select name="items[0][status]" class="border rounded w-full p-2">
+          <option value="available">Available</option>
+          <option value="in_use">In Use</option>
+          <option value="reserved">Reserved</option>
+        </select>
+      </div>
     </div>
-    <div class="flex items-center gap-3">
-        <button
-            type="submit"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-            Simpan
-        </button>
+  </div>
 
-        <a href="{{ route('inventories.index') }}"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-500 rounded-lg hover:bg-gray-600">
-            Back
-        </a>
+  <button type="button" onclick="addItem()" class="bg-green-600 text-white px-3 py-2 rounded">
+    + Tambah Item
+  </button>
+
+  <div class="mt-5">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
+  </div>
+</form>
+
+<script>
+let itemIndex = 1;
+function addItem() {
+  let wrapper = document.getElementById('items-wrapper');
+  let newItem = document.createElement('div');
+  newItem.classList.add('item-form','border','p-4','mb-3','rounded','bg-gray-50');
+  newItem.innerHTML = `
+    <h4 class="font-semibold mb-2">Item #${itemIndex+1}</h4>
+    <div class="mb-2">
+      <label class="text-sm">Brand</label>
+      <input type="text" name="items[${itemIndex}][brand]" class="border rounded w-full p-2">
     </div>
-  </form>
+    <div class="mb-2">
+      <label class="text-sm">Nomor Seri</label>
+      <input type="text" name="items[${itemIndex}][serial_number]" class="border rounded w-full p-2">
+    </div>
+    <div class="mb-2">
+      <label class="text-sm">Kondisi</label>
+      <select name="items[${itemIndex}][condition]" class="border rounded w-full p-2">
+        <option value="good">Good</option>
+        <option value="damaged">Damaged</option>
+        <option value="maintenance">Maintenance</option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label class="text-sm">Status</label>
+      <select name="items[${itemIndex}][status]" class="border rounded w-full p-2">
+        <option value="available">Available</option>
+        <option value="in_use">In Use</option>
+        <option value="reserved">Reserved</option>
+      </select>
+    </div>
+  `;
+  wrapper.appendChild(newItem);
+  itemIndex++;
+}
+</script>
+
+</div>
+
+@endsection --}}
+
+@extends('layouts.admin') 
+@section('content')
+
+<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Tambah Item Inventory</h5>
+  <form action="{{ route('inventories.store') }}" method="POST">
+  @csrf
+  <div class="mb-5">
+    <label class="block mb-2 text-sm font-medium">Nama Inventaris</label>
+    <input type="text" name="name" class="border rounded w-full p-2" required>
+  </div>
+
+  <div id="items-wrapper">
+    <div class="item-form border p-4 mb-3 rounded bg-gray-50 relative">
+      <h4 class="font-semibold mb-2">Item #1</h4>
+      <div class="mb-2">
+        <label class="text-sm">Brand</label>
+        <input type="text" name="items[0][brand]" class="border rounded w-full p-2">
+      </div>
+      <div class="mb-2">
+        <label class="text-sm">Nomor Seri</label>
+        <input type="text" name="items[0][serial_number]" class="border rounded w-full p-2">
+      </div>
+      <div class="mb-2">
+        <label class="text-sm">Kondisi</label>
+        <select name="items[0][condition]" class="border rounded w-full p-2">
+          <option value="good">Good</option>
+          <option value="damaged">Damaged</option>
+          <option value="maintenance">Maintenance</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label class="text-sm">Status</label>
+        <select name="items[0][status]" class="border rounded w-full p-2">
+          <option value="available">Available</option>
+          <option value="in_use">In Use</option>
+          <option value="reserved">Reserved</option>
+        </select>
+      </div>
+      <!-- Button hapus -->
+      <button type="button" onclick="removeItem(this)" class="bg-red-600 text-white px-3 py-1 rounded">
+        Hapus
+      </button>
+    </div>
+  </div>
+
+  <button type="button" onclick="addItem()" class="bg-green-600 text-white px-3 py-2 rounded">
+    + Tambah Item
+  </button>
+
+  <div class="mt-5">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
+  </div>
+</form>
+
+<script>
+let itemIndex = 1;
+
+// Fungsi tambah item
+function addItem() {
+  let wrapper = document.getElementById('items-wrapper');
+  let newItem = document.createElement('div');
+  newItem.classList.add('item-form','border','p-4','mb-3','rounded','bg-gray-50','relative');
+  newItem.innerHTML = `
+    <h4 class="font-semibold mb-2">Item #${itemIndex+1}</h4>
+    <div class="mb-2">
+      <label class="text-sm">Brand</label>
+      <input type="text" name="items[${itemIndex}][brand]" class="border rounded w-full p-2">
+    </div>
+    <div class="mb-2">
+      <label class="text-sm">Nomor Seri</label>
+      <input type="text" name="items[${itemIndex}][serial_number]" class="border rounded w-full p-2">
+    </div>
+    <div class="mb-2">
+      <label class="text-sm">Kondisi</label>
+      <select name="items[${itemIndex}][condition]" class="border rounded w-full p-2">
+        <option value="good">Good</option>
+        <option value="damaged">Damaged</option>
+        <option value="maintenance">Maintenance</option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label class="text-sm">Status</label>
+      <select name="items[${itemIndex}][status]" class="border rounded w-full p-2">
+        <option value="available">Available</option>
+        <option value="in_use">In Use</option>
+        <option value="reserved">Reserved</option>
+      </select>
+    </div>
+    <!-- Button hapus -->
+    <button type="button" onclick="removeItem(this)" class="bg-red-600 text-white px-3 py-1 rounded">
+      Hapus
+    </button>
+  `;
+  wrapper.appendChild(newItem);
+  itemIndex++;
+}
+
+// Fungsi hapus item
+function removeItem(button) {
+  let itemForm = button.closest('.item-form');
+  itemForm.remove();
+}
+</script>
+
 </div>
 
 @endsection

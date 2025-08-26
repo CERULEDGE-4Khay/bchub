@@ -21,4 +21,9 @@ class Inventory extends Model
         $used = $this->rooms()->sum('inventory_room.quantity');
         return $this->quantity - $used;
     }
+
+    public function items()
+    {
+        return $this->hasMany(InventoryItem::class, 'inventory_id');
+    }
 }

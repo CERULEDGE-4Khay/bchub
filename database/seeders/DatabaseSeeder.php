@@ -25,80 +25,80 @@ class DatabaseSeeder extends Seeder
             'role_id' => 2
         ]);
 
-        $users = \App\Models\User::factory()->count(3)->create();
+        // $users = \App\Models\User::factory()->count(3)->create();
 
-        $rooms = \App\Models\Room::insert([
-            ['name' => 'Studio Musik Basement', 'description' => 'Studio musik pertama di Bandung', 'capacity' => 8, 'floor' => 'Basement'],
-            ['name' => 'Studio Tari Lantai 2', 'description' => 'Ruang tari luas untuk 20 orang', 'capacity' => 20, 'floor' => '2'],
-            ['name' => 'Studio Teater', 'description' => 'Ruang teater mini untuk latihan drama', 'capacity' => 15, 'floor' => '2'],
-        ]);
+        // $rooms = \App\Models\Room::insert([
+        //     ['name' => 'Studio Musik Basement', 'description' => 'Studio musik pertama di Bandung', 'capacity' => 8, 'floor' => 'Basement'],
+        //     ['name' => 'Studio Tari Lantai 2', 'description' => 'Ruang tari luas untuk 20 orang', 'capacity' => 20, 'floor' => '2'],
+        //     ['name' => 'Studio Teater', 'description' => 'Ruang teater mini untuk latihan drama', 'capacity' => 15, 'floor' => '2'],
+        // ]);
 
-        $rooms = \App\Models\Room::all();
+        // $rooms = \App\Models\Room::all();
 
-        \App\Models\Inventory::insert([
-            [
-                'name' => 'Drum Set',
-                'brand' => 'fender',
-                'serial_number' => 'asdasd',
-                'condition' => 'good',
-                'status' => 'available',
-                'quantity' => 10
-            ],
-            [
-                'name' => 'Gitar Elektrik',
-                'brand' => 'fender',
-                'serial_number' => 'asdasd',
-                'condition' => 'good',
-                'status' => 'available',
-                'quantity' => 10
-            ],
-            [
-                'name' => 'Keyboard',
-                'brand' => 'fender',
-                'serial_number' => 'asdasd',
-                'condition' => 'good',
-                'status' => 'available',
-                'quantity' => 10
-            ],
-            [
-                'name' => 'Amplifier',
-                'brand' => 'BlackStar',
-                'serial_number' => 'asdasd',
-                'condition' => 'good',
-                'status' => 'available',
-                'quantity' => 10
-            ],
-        ]);
+        // \App\Models\Inventory::insert([
+        //     [
+        //         'name' => 'Drum Set',
+        //         'brand' => 'fender',
+        //         'serial_number' => 'asdasd',
+        //         'condition' => 'good',
+        //         'status' => 'available',
+        //         'quantity' => 10
+        //     ],
+        //     [
+        //         'name' => 'Gitar Elektrik',
+        //         'brand' => 'fender',
+        //         'serial_number' => 'asdasd',
+        //         'condition' => 'good',
+        //         'status' => 'available',
+        //         'quantity' => 10
+        //     ],
+        //     [
+        //         'name' => 'Keyboard',
+        //         'brand' => 'fender',
+        //         'serial_number' => 'asdasd',
+        //         'condition' => 'good',
+        //         'status' => 'available',
+        //         'quantity' => 10
+        //     ],
+        //     [
+        //         'name' => 'Amplifier',
+        //         'brand' => 'BlackStar',
+        //         'serial_number' => 'asdasd',
+        //         'condition' => 'good',
+        //         'status' => 'available',
+        //         'quantity' => 10
+        //     ],
+        // ]);
 
-        // Ambil data setelah insert
-        $room1 = \App\Models\Room::where('name', 'Studio Musik Basement')->first();
-        $room2 = \App\Models\Room::where('name', 'Studio Tari Lantai 2')->first();
+        // // Ambil data setelah insert
+        // $room1 = \App\Models\Room::where('name', 'Studio Musik Basement')->first();
+        // $room2 = \App\Models\Room::where('name', 'Studio Tari Lantai 2')->first();
 
-        $drum   = \App\Models\Inventory::where('name', 'Drum Set')->first();
-        $guitar = \App\Models\Inventory::where('name', 'Gitar Elektrik')->first();
-        $amp    = \App\Models\Inventory::where('name', 'Amplifier')->first();
+        // $drum   = \App\Models\Inventory::where('name', 'Drum Set')->first();
+        // $guitar = \App\Models\Inventory::where('name', 'Gitar Elektrik')->first();
+        // $amp    = \App\Models\Inventory::where('name', 'Amplifier')->first();
 
-        // Hubungkan Room dengan Inventory lewat pivot
-        $room1->inventories()->attach($drum->id, ['quantity' => 1]);
-        $room1->inventories()->attach($guitar->id, ['quantity' => 1]);
-        $room1->inventories()->attach($amp->id, ['quantity' => 1]);
+        // // Hubungkan Room dengan Inventory lewat pivot
+        // $room1->inventories()->attach($drum->id, ['quantity' => 1]);
+        // $room1->inventories()->attach($guitar->id, ['quantity' => 1]);
+        // $room1->inventories()->attach($amp->id, ['quantity' => 1]);
 
-        $room2->inventories()->attach($guitar->id);
+        // $room2->inventories()->attach($guitar->id);
 
-        \App\Models\Booking::create([
-            'user_id'    => $users[0]->id,
-            'room_id'    => $rooms[0]->id,
-            'start_time' => now()->addDay()->setTime(9, 0),
-            'end_time'   => now()->addDay()->setTime(11, 0),
-            'status'     => 'approved',
-        ]);
+        // \App\Models\Booking::create([
+        //     'user_id'    => $users[0]->id,
+        //     'room_id'    => $rooms[0]->id,
+        //     'start_time' => now()->addDay()->setTime(9, 0),
+        //     'end_time'   => now()->addDay()->setTime(11, 0),
+        //     'status'     => 'approved',
+        // ]);
 
-        \App\Models\Booking::create([
-            'user_id'    => $users[1]->id,
-            'room_id'    => $rooms[1]->id,
-            'start_time' => now()->addDay()->setTime(13, 0),
-            'end_time'   => now()->addDay()->setTime(15, 0),
-            'status'     => 'pending',
-        ]);
+        // \App\Models\Booking::create([
+        //     'user_id'    => $users[1]->id,
+        //     'room_id'    => $rooms[1]->id,
+        //     'start_time' => now()->addDay()->setTime(13, 0),
+        //     'end_time'   => now()->addDay()->setTime(15, 0),
+        //     'status'     => 'pending',
+        // ]);
     }
 }
