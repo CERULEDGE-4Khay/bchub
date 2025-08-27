@@ -2,7 +2,7 @@
 <div class="mx-auto bg-white p-6 rounded-lg shadow">
   <h2 class="text-xl font-semibold mb-4">Edit Ruangan</h2>
 
-  <form action="{{ route('rooms.update', $room->id) }}" method="POST">
+  <form action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
     @csrf @method('PUT')
 
     <!-- Nama -->
@@ -66,8 +66,41 @@
     </details>
   @endforeach
 </div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
+  {{-- Gambar lama --}}
+  @foreach($room->images as $image)
+    <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg bg-gray-50 overflow-hidden">
+      <!-- Tombol hapus -->
+      <button type="button" 
+              class="remove-old absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10" 
+              data-id="{{ $image->id }}">
+        <i class="bi bi-trash"></i>
+      </button>
+      <!-- Preview -->
+      <img src="{{ asset('storage/' . $image->image_url) }}" class="object-cover w-full h-full rounded-lg" />
+    </div>
+  @endforeach
 
+  {{-- Dropzone baru --}}
+  <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
+    <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
+      <i class="bi bi-trash"></i>
+    </button>
+    <div class="preview-container w-full h-full flex items-center justify-center"></div>
+    <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
+      <div class="flex flex-col items-center justify-center pt-5 pb-6">
+        <i class="bi bi-cloud-arrow-up text-4xl text-gray-500"></i>
+        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+      </div>
+      <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
+    </label>
+  </div>
 
+  <!-- Tombol tambah -->
+  <div class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 flex flex-col items-center justify-center" id="add-image">
+    <i class="bi bi-plus-circle text-4xl"></i>
+  </div>
+</div>
 
     <!-- Deskripsi -->
     <div class="mb-4">
@@ -81,4 +114,87 @@
     <a href="{{ route('rooms.index') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Kembali</a>
   </form>
 </div>
+
+<script>
+  const addImage = document.getElementById("add-image");
+  const imageWrapper = document.getElementById("image-wrapper");
+
+  function initDropzone(dropzoneEl) {
+    const removeBtn = dropzoneEl.querySelector(".remove-btn");
+    const fileInput = dropzoneEl.querySelector(".dropzone-input");
+    const previewContainer = dropzoneEl.querySelector(".preview-container");
+    const placeholder = dropzoneEl.querySelector(".placeholder");
+
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        dropzoneEl.remove();
+      });
+    }
+
+    if (fileInput) {
+      fileInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            previewContainer.innerHTML = `<img src="${e.target.result}" class="object-cover w-full h-full rounded-lg" />`;
+            placeholder.classList.add("hidden");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  }
+
+  // Inisialisasi dropzone baru
+  document.querySelectorAll("#image-wrapper .dropzone").forEach(initDropzone);
+
+  // Tambah dropzone baru
+  addImage.addEventListener("click", function () {
+    const temp = document.createElement("div");
+    temp.innerHTML = dropzoneFile().trim();
+    const newDropzone = temp.firstChild;
+    imageWrapper.insertBefore(newDropzone, addImage);
+    initDropzone(newDropzone);
+  });
+
+  function dropzoneFile() {
+    return `
+      <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
+        <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
+          <i class="bi bi-trash"></i>
+        </button>
+        <div class="preview-container w-full h-full flex items-center justify-center"></div>
+        <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <i class="bi bi-cloud-arrow-up text-4xl text-gray-500"></i>
+            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+          </div>
+          <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
+        </label>
+      </div>
+    `;
+  }
+
+  // Hapus gambar lama pakai AJAX
+  document.querySelectorAll(".remove-old").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const id = this.dataset.id;
+      if (confirm("Hapus gambar ini?")) {
+        fetch(`/rooms/images/${id}`, {
+          method: "DELETE",
+          headers: {
+            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            "Accept": "application/json"
+          }
+        }).then(res => {
+          if (res.ok) {
+            this.closest(".dropzone").remove();
+          }
+        });
+      }
+    });
+  });
+</script>
+
 @endsection

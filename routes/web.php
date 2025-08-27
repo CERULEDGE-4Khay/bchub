@@ -16,6 +16,8 @@ Route::get('lihatdetail', function () {
     return view('lihatdetail');
 });
 
+Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
+
 Route::prefix('dashboard')->middleware('auth')->group(function() {
     Route::get('/', function() {
         return view('dashboard');

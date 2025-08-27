@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\InventoryItem;
 use App\Models\Room;
+use App\Models\RoomImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -42,9 +44,11 @@ class RoomController extends Controller
             'capacity'        => 'required|integer|min:1',
             'floor'           => 'required|string',
             'inventory_items' => 'nullable|array',
+            'images'   => 'nullable|array',
+            'images.*' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
-        DB::transaction(function () use ($validated) {
+        DB::transaction(function () use ($validated, $request) {
             $room = Room::create([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
@@ -57,6 +61,16 @@ class RoomController extends Controller
 
                 InventoryItem::whereIn('id', $validated['inventory_items'])
                     ->update(['status' => 'in_use']);
+            }
+
+            // simpan images
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $file) {
+                    $path = $file->store('rooms', 'public');
+                    $room->images()->create([
+                        'image_url' => $path,
+                    ]);
+                }
             }
         });
 
@@ -95,9 +109,10 @@ class RoomController extends Controller
             'capacity'        => 'required|integer|min:1',
             'floor'           => 'required|string',
             'inventory_items' => 'nullable|array',
+            'images.*'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        DB::transaction(function () use ($validated, $room) {
+        DB::transaction(function () use ($validated, $room, $request) {
             $room->update([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
@@ -117,6 +132,14 @@ class RoomController extends Controller
                 InventoryItem::whereIn('id', $validated['inventory_items'])
                     ->update(['status' => 'in_use']);
             }
+
+            // Simpan gambar baru
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $path = $image->store('rooms', 'public');
+                    $room->images()->create(['path' => $path]);
+                }
+            }
         });
 
         return redirect()->route('rooms.index')->with('success', 'Room berhasil diperbarui.');
@@ -125,12 +148,26 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room, Inventory $inventory)
+    public function destroy(Room $room)
     {
         DB::transaction(function () use ($room) {
+            foreach ($room->images as $image) {
+                if (Storage::disk('public')->exists($image->image_url)) {
+                    Storage::disk('public')->delete($image->image_url);
+                }
+                $image->delete();
+            }
+
             $room->inventories()->detach();
             $room->delete();
         });
         return redirect()->route('rooms.index')->with('success', 'Room berhasil dihapus.');
+    }
+
+    public function destroyImage(RoomImage $image)
+    {
+        Storage::disk('public')->delete($image->image_url);
+        $image->delete();
+        return response()->json(['success' => true]);
     }
 }
