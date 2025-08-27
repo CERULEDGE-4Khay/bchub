@@ -9,9 +9,11 @@
       <p class="text-gray-600 mt-4">
         {{ $room->description }}
       </p>
-      {{-- <p class="text-gray-600 mt-3">
+      {{--
+      <p class="text-gray-600 mt-3">
         Cocok untuk: Latihan Musik, Instrumental, Duo, dan Band.
-      </p> --}}
+      </p>
+      --}}
       <a href="#" class="mt-6 bg-clifford hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow inline-block">
         Lihat Fasilitas
       </a>
@@ -46,11 +48,11 @@
 
   <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
     <!-- Gitar -->
-    @foreach ($room->inventoryItems as $item)    
-      <div class="flex flex-col items-center fade-in-up" style="animation-delay: 0.1s;">
-        <i class="fa-solid fa-guitar text-gray-600 text-2xl mb-2 transition-transform duration-200 transform hover:scale-125 hover:text-indigo-600"></i>
-        <span class="text-gray-700">{{ $item->name }} ({{ $item->pivot->quantity }})</span>
-      </div>
+    @foreach ($room->inventoryItems as $item)
+    <div class="flex flex-col items-center fade-in-up" style="animation-delay: 0.1s;">
+      <i class="fa-solid fa-guitar text-gray-600 text-2xl mb-2 transition-transform duration-200 transform hover:scale-125 hover:text-indigo-600"></i>
+      <span class="text-gray-700">{{ $item->name }} ({{ $item->pivot->quantity }})</span>
+    </div>
     @endforeach
   </div>
 </div>
@@ -150,7 +152,7 @@
 </style>
 
 <!-- Bagian Ketentuan -->
-<div class="border-t pt-5 border-b pb-5">
+<div class="pt-5 pb-5">
   <div class="max-w-5xl mx-auto px-6 py-12 mt-12 mb-12">
     <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
 
@@ -207,4 +209,126 @@
   </div>
 </div>
 
+<div class="">
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
+    <div class="overflow-x-auto rounded-lg shadow">
+    <div id="calendar" class="min-w-[350px]"></div>
+  </div>
+    {{-- Modal :( --}}
+    <div id="bookingModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
+      <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+        <div class="flex justify-between items-center border-b pb-3 mb-4">
+          <h5 class="text-lg font-semibold">Booking Studio Musik</h5>
+          <button class="text-gray-500 hover:text-gray-700" onclick="closeModal()">
+            ✕
+          </button>
+        </div>
+
+        <form id="bookingForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium">Tanggal</label>
+            <input type="text" id="bookingDate" readonly class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Pilih Sesi</label>
+            <select id="bookingSession" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+              <option value="">-- Pilih Sesi --</option>
+              <option value="09:00">09.00–11.00</option>
+              <option value="11:00">11.00–13.00</option>
+              <option value="13:00">13.00–15.00</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Atas Nama</label>
+            <input type="text" id="bookingNama" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Nama Band</label>
+            <input type="text" id="bookingBand" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
+
+          <div class="flex justify-end pt-4 border-t">
+            <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+              Simpan Booking
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+<script>
+  const modal = document.getElementById("bookingModal");
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeModal() {
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const calendarEl = document.getElementById("calendar");
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "listMonth",
+      locale: "id",
+      headerToolbar: {
+        left: "prev,next today",
+        center: "title",
+        right: "listMonth,dayGridMonth",
+      },
+      events: [],
+      dateClick: function (info) {
+        const dateStr = info.dateStr;
+        document.getElementById("bookingDate").value = dateStr;
+
+        // reset opsi
+        const options = document.querySelectorAll("#bookingSession option");
+        options.forEach((opt) => (opt.disabled = false));
+
+        const events = calendar.getEvents().filter((e) => e.startStr.startsWith(dateStr));
+
+        const takenSessions = events.map((e) => e.startStr.slice(11, 16));
+
+        takenSessions.forEach((sesi) => {
+          const opt = document.querySelector(`#bookingSession option[value="${sesi}"]`);
+          if (opt) opt.disabled = true;
+        });
+
+        openModal();
+      },
+    });
+
+    calendar.render();
+
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const tanggal = document.getElementById("bookingDate").value;
+      const sesi = document.getElementById("bookingSession").value;
+      const nama = document.getElementById("bookingNama").value;
+      const band = document.getElementById("bookingBand").value;
+
+      const start = `${tanggal}T${sesi}:00`;
+      const endHour = parseInt(sesi.split(":")[0]) + 2;
+      const end = `${tanggal}T${endHour.toString().padStart(2, "0")}:00`;
+
+      calendar.addEvent({
+        title: `${band} / ${nama}`,
+        start: start,
+        end: end,
+      });
+
+      closeModal();
+      e.target.reset();
+    });
+  });
+</script>
 @endsection
