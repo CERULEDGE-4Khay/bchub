@@ -97,205 +97,205 @@
             <!-- 1 -->
             <swiper-slide>
                 <div
-                class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+                class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
                 >
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">1</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">APLIKASI</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">APLIKASI</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 2 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">2</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">ARSITEKTUR</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">ARSITEKTUR</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 3 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">3</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DESAIN INTERIOR</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN INTERIOR</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 4 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">4</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DESAIN PRODUK</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN PRODUK</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 5 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">5</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">DESAIN KOMUNIKASI VISUAL</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN KOMUNIKASI VISUAL</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 6 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">6</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">FILM, ANIMASI, DAN VIDEO</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FILM, ANIMASI, DAN VIDEO</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 7 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">7</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">FASHION</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FASHION</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 8 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">8</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">FOTOGRAFI</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FOTOGRAFI</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 9 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">9</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">KULINER</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">KULINER</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 10 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">10</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">MUSIK</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">MUSIK</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 11 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">11</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PENERBITAN</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PENERBITAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 12 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">12</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PENGEMBANGAN PERMAINAN</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PENGEMBANGAN PERMAINAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 13 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">13</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PERIKLANAN</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PERIKLANAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 14 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">14</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SENI KRIYA</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI KRIYA</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 15 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">15</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SENI PERTUNJUKKAN</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI PERTUNJUKKAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 16 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">16</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SENI RUPA</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI RUPA</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 17 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
                     <h3 class="text-4xl">17</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">TV DAN RADIO</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">TV DAN RADIO</h5>
                 </div>
                 </div>
             </swiper-slide>
@@ -341,11 +341,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   WORKSHOP
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -375,11 +375,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   CO-WORKER
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -409,11 +409,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   EXHIBITION
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -443,11 +443,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   MINI SHOWCASE
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -477,11 +477,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   CLASS SESSION
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -515,11 +515,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   Kegiatan diluar 17 Subsektor Ekonomi Kreatif.
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -549,11 +549,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                 Bazaar yang melibatkan jual-beli Produk.
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -583,11 +583,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   Pelantikan Organisasi, Komunitas, dsb.
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -617,11 +617,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   Sekretariat Organisasi, Komunitas, dsb.
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -651,11 +651,11 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                 >
                   Wisuda dan Perpisahan Sekolah ataupun Kampus.
                 </h5>
-                {{-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{-- <p class="mb-3 font-normal text-gray-700">
                   Hama bagi para rakyat infdonesia ajafhajksdf
                 </p> --}}
               </div>
@@ -683,7 +683,7 @@
           <div class="mt-10 flex justify-center">
             <button
               id="loadMoreBtn"
-              class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 flex justify-center items-center gap-2"
+              class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
             >
               Tampilkan lebih banyak
               <svg
@@ -824,7 +824,7 @@
         nextItem.forEach((item) => {
             const card = document.createElement("div");
 
-            card.className = "bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700";
+            card.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
 
             card.innerHTML = `
                     <a href="#">
@@ -838,18 +838,18 @@
                     <div class="p-5">
                     <a href="#">
                         <h5
-                        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                        class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
                         >
                         ${item.nama}
                         </h5>
                     </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    <p class="mb-3 font-normal text-gray-700">
                         ${item.deskripsi}
                     </p>
                     <div class="flex">
                         <span
                         type="button"
-                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100"
                         ><svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -866,7 +866,7 @@
                         >
                         <span
                         type="button"
-                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600"
+                        class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-100"
                         >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -885,7 +885,7 @@
                     </div>
                     <a
                         href="lihatdetail"
-                        class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-clifford focus:outline-none dark:focus:ring-blue-800 text-center"
+                        class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none text-center"
                     >
                         Lihat Detail
                     </a>

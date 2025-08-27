@@ -7,7 +7,7 @@
     <title>BCH</title>
 </head>
 <body>
-    <footer class="bg-gray-200 dark:bg-gray-900">
+    <footer class="bg-gray-200">
       <div class="container mx-auto px-6 py-12">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
@@ -18,7 +18,7 @@
                 alt="FlowBite Logo"
               />
               <span
-                class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+                class="self-center text-2xl font-semibold whitespace-nowrap"
                 ></span
               >Bandung Creative HUB
             </a>
@@ -26,11 +26,11 @@
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2
-                class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+                class="mb-6 text-sm font-semibold text-gray-900 uppercase"
               >
                 Resources
               </h2>
-              <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <ul class="text-gray-500 font-medium">
                 <li class="mb-4">
                   <a href="https://flowbite.com/" class="hover:underline"
                     >Flowbite</a
@@ -45,11 +45,11 @@
             </div>
             <div>
               <h2
-              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+              class="mb-6 text-sm font-semibold text-gray-900 uppercase"
               >
                 Follow us
               </h2>
-              <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <ul class="text-gray-500 font-medium">
                 <li class="mb-4">
                   <a
                   href="https://github.com/themesberg/flowbite"
@@ -68,11 +68,11 @@
             </div>
             <div>
               <h2
-                class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
+                class="mb-6 text-sm font-semibold text-gray-900 uppercase"
               >
                 Legal
               </h2>
-              <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <ul class="text-gray-500 font-medium">
                 <li class="mb-4">
                   <a href="#" class="hover:underline">Privacy Policy</a>
                 </li>
@@ -84,10 +84,10 @@
           </div>
         </div>
         <hr
-          class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+          class="my-6 border-gray-200 sm:mx-auto lg:my-8"
           />
         <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+          <span class="text-sm text-gray-500 sm:text-center"
             >© 2023
             <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a
             >. All Rights Reserved.
@@ -95,7 +95,7 @@
           <div class="flex mt-4 sm:justify-center sm:mt-0">
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              class="text-gray-500 hover:text-gray-900"
             >
               <svg
                 class="w-4 h-4"
@@ -114,7 +114,7 @@
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              class="text-gray-500 hover:text-gray-900 ms-5"
             >
               <svg
                 class="w-4 h-4"
@@ -131,7 +131,7 @@
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              class="text-gray-500 hover:text-gray-900 ms-5"
             >
               <svg
                 class="w-4 h-4"
@@ -150,7 +150,7 @@
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              class="text-gray-500 hover:text-gray-900 ms-5"
             >
               <svg
                 class="w-4 h-4"
@@ -169,7 +169,7 @@
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              class="text-gray-500 hover:text-gray-900 ms-5"
             >
               <svg
                 class="w-4 h-4"

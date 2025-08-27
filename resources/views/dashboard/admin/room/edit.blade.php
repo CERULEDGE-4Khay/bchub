@@ -45,7 +45,7 @@
               <tr class="border-b {{ $item->status !== 'available' && !in_array($item->id, $roomItems) ? 'bg-gray-100 text-gray-400' : '' }}">
                 <td class="px-4 py-2">
                   @if($item->status === 'available' || in_array($item->id, $roomItems))
-                  <input type="checkbox" name="inventory_items[]" value="{{ $item->id }}" {{ in_array($item- />id, $roomItems) ? 'checked' : '' }}> @else
+                  <input type="checkbox" name="inventory_items[]" value="{{ $item->id }}" {{ in_array($item->id, $roomItems) ? 'checked' : '' }}> @else
                   <span class="text-xs italic">Tidak tersedia</span>
                   @endif
                 </td>
