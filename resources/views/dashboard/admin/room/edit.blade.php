@@ -25,33 +25,28 @@
 
     {{-- Inventory --}}
     <div class="mb-5">
-  <label for="fasilitas" class="block mb-2 text-sm font-medium text-gray-900">Fasilitas</label>
-  @foreach($inventoryItems->groupBy('inventory.name') as $category => $items)
-    <details class="mb-2 border rounded">
-      <summary class="cursor-pointer px-4 py-2 bg-gray-100 font-medium">{{ $category }}</summary>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-700">
-          <thead class="text-xs uppercase bg-gray-50 text-gray-600">
-            <tr>
-              <th class="px-4 py-2">Pilih</th>
-              <th class="px-4 py-2">Merek</th>
-              <th class="px-4 py-2">Serial</th>
-              <th class="px-4 py-2">Kondisi</th>
-              <th class="px-4 py-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($items as $item)
+      <label for="fasilitas" class="block mb-2 text-sm font-medium text-gray-900">Fasilitas</label>
+      @foreach($inventoryItems->groupBy('inventory.name') as $category => $items)
+      <details class="mb-2 border rounded">
+        <summary class="cursor-pointer px-4 py-2 bg-gray-100 font-medium">{{ $category }}</summary>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-700">
+            <thead class="text-xs uppercase bg-gray-50 text-gray-600">
+              <tr>
+                <th class="px-4 py-2">Pilih</th>
+                <th class="px-4 py-2">Merek</th>
+                <th class="px-4 py-2">Serial</th>
+                <th class="px-4 py-2">Kondisi</th>
+                <th class="px-4 py-2">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($items as $item)
               <tr class="border-b {{ $item->status !== 'available' && !in_array($item->id, $roomItems) ? 'bg-gray-100 text-gray-400' : '' }}">
                 <td class="px-4 py-2">
                   @if($item->status === 'available' || in_array($item->id, $roomItems))
-                    <input 
-                      type="checkbox" 
-                      name="inventory_items[]" 
-                      value="{{ $item->id }}" 
-                      {{ in_array($item->id, $roomItems) ? 'checked' : '' }}>
-                  @else
-                    <span class="text-xs italic">Tidak tersedia</span>
+                  <input type="checkbox" name="inventory_items[]" value="{{ $item->id }}" {{ in_array($item- />id, $roomItems) ? 'checked' : '' }}> @else
+                  <span class="text-xs italic">Tidak tersedia</span>
                   @endif
                 </td>
                 <td class="px-4 py-2">{{ $item->brand ?? '-' }}</td>
@@ -59,48 +54,43 @@
                 <td class="px-4 py-2">{{ ucfirst($item->condition) }}</td>
                 <td class="px-4 py-2">{{ ucfirst($item->status) }}</td>
               </tr>
-            @endforeach
-          </tbody>
-        </table>
-      </div>
-    </details>
-  @endforeach
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
-  {{-- Gambar lama --}}
-  @foreach($room->images as $image)
-    <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg bg-gray-50 overflow-hidden">
-      <!-- Tombol hapus -->
-      <button type="button" 
-              class="remove-old absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10" 
-              data-id="{{ $image->id }}">
-        <i class="bi bi-trash"></i>
-      </button>
-      <!-- Preview -->
-      <img src="{{ asset('storage/' . $image->image_url) }}" class="object-cover w-full h-full rounded-lg" />
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </details>
+      @endforeach
     </div>
-  @endforeach
-
-  {{-- Dropzone baru --}}
-  <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
-    <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
-      <i class="bi bi-trash"></i>
-    </button>
-    <div class="preview-container w-full h-full flex items-center justify-center"></div>
-    <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
-      <div class="flex flex-col items-center justify-center pt-5 pb-6">
-        <i class="bi bi-cloud-arrow-up text-4xl text-gray-500"></i>
-        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
+      {{-- Gambar lama --}} @foreach($room->images as $image)
+      <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg bg-gray-50 overflow-hidden">
+        <!-- Tombol hapus -->
+        <button type="button" class="remove-old absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10" data-id="{{ $image->id }}">
+          <i class="bi bi-trash"></i>
+        </button>
+        <!-- Preview -->
+        <img src="{{ asset('storage/' . $image->image_url) }}" class="object-cover w-full h-full rounded-lg" />
       </div>
-      <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
-    </label>
-  </div>
+      @endforeach {{-- Dropzone baru --}}
+      <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
+        <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
+          <i class="bi bi-trash"></i>
+        </button>
+        <div class="preview-container w-full h-full flex items-center justify-center"></div>
+        <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <i class="bi bi-cloud-arrow-up text-4xl text-gray-500"></i>
+            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+          </div>
+          <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
+        </label>
+      </div>
 
-  <!-- Tombol tambah -->
-  <div class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 flex flex-col items-center justify-center" id="add-image">
-    <i class="bi bi-plus-circle text-4xl"></i>
-  </div>
-</div>
+      <!-- Tombol tambah -->
+      <div class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 flex flex-col items-center justify-center" id="add-image">
+        <i class="bi bi-plus-circle text-4xl"></i>
+      </div>
+    </div>
 
     <!-- Deskripsi -->
     <div class="mb-4">
@@ -185,9 +175,9 @@
           method: "DELETE",
           headers: {
             "X-CSRF-TOKEN": "{{ csrf_token() }}",
-            "Accept": "application/json"
-          }
-        }).then(res => {
+            Accept: "application/json",
+          },
+        }).then((res) => {
           if (res.ok) {
             this.closest(".dropzone").remove();
           }

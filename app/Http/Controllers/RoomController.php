@@ -83,7 +83,9 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        // ambil data relasi
+        $room->load(['inventoryItems.inventory', 'images']);
+        return view('dashboard.admin.room.show', compact('room'));
     }
 
     /**
