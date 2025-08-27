@@ -4,17 +4,13 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuestViewController;
 use App\Http\Controllers\RoomController;
 
-Route::get('/', function () {
-    $rooms = \App\Models\Room::with(['inventoryItems.inventory', 'images'])->get();
-    return view('welcome', compact('rooms'));
-});
+Route::get('/', [GuestViewController::class, 'welcome']);
+Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->name('detai.room');
 Route::get('berita', function () {
     return view('berita');
-});
-Route::get('lihatdetail', function () {
-    return view('lihatdetail');
 });
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
