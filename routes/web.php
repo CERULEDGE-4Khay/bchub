@@ -7,7 +7,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
-    return view('welcome');
+    $rooms = \App\Models\Room::with(['inventoryItems.inventory', 'images'])->get();
+    // return $rooms[0]->images[0];
+    return view('welcome', compact('rooms'));
 });
 Route::get('berita', function () {
     return view('berita');
