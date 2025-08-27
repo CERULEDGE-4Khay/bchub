@@ -11,7 +11,7 @@
 
   <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
 
-  <div class="items-center block w-auto h-screen overflow-y-auto grow basis-full">
+  <div class="items-center block w-auto grow basis-full">
     <ul class="flex flex-col pl-0 mb-0">
       <li class="mt-0.5 w-full">
         <a class="py-2.7 {{ request()->routeIs('dashboard.admin') ? 'bg-blue-500/13 font-semibold text-slate-700' : '' }} text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="{{ route('dashboard.admin') }}">
