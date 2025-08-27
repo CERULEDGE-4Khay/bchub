@@ -9,6 +9,10 @@ class Room extends Model
 {
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'terms' => 'array',
+    ];
+
     public function inventories()
     {
         return $this->belongsToMany(Inventory::class, 'inventory_room')

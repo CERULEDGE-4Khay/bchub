@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedInteger('capacity')->default(1);
             $table->string('floor');
+            $table->json('terms')->nullable();
             $table->timestamps();
         });
     }

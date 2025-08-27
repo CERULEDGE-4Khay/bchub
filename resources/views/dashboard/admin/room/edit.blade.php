@@ -92,6 +92,46 @@
       </div>
     </div>
 
+    <div class="mb-5">
+      <h2 class="block mb-2 text-sm font-medium text-gray-900">Tambah Ketentuan</h2>
+
+      <div class="mx-auto p-1 rounded-xl">
+        <div id="terms-wrapper" class="space-y-6">
+          @if($room->terms)
+            @foreach($room->terms as $i => $term)
+              <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <div>
+                  <label for="title-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+                  <input type="text" id="title-{{ $i }}" name="terms[{{ $i }}][title]"
+                        value="{{ $term['title'] }}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        required>
+                </div>
+    
+                <div>
+                  <label for="desc-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+                  <textarea id="desc-{{ $i }}" name="terms[{{ $i }}][description]" rows="3"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $term['description'] }}</textarea>
+                </div>
+    
+                <div class="flex justify-end">
+                  <button type="button" onclick="removeTerm(this)"
+                          class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+                    Hapus
+                  </button>
+                </div>
+              </div>
+            @endforeach
+          @endif
+        </div>
+  
+        <button type="button" onclick="addTerm()"
+          class="mt-6 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-blue-400 hover:text-blue-500 transition">
+          + Tambah Ketentuan
+        </button>
+      </div>
+    </div>
+
     <!-- Deskripsi -->
     <div class="mb-4">
       <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
@@ -104,6 +144,42 @@
     <a href="{{ route('rooms.index') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Kembali</a>
   </form>
 </div>
+
+<script>
+let termIndex = 1;
+
+function addTerm() {
+  const wrapper = document.getElementById('terms-wrapper');
+  const div = document.createElement('div');
+  div.className = "term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200";
+  div.innerHTML = `
+    <div>
+      <label for="title-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+      <input type="text" id="title-${termIndex}" name="terms[${termIndex}][title]"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Contoh: KTP" required>
+    </div>
+    <div>
+      <label for="desc-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+      <textarea id="desc-${termIndex}" name="terms[${termIndex}][description]" rows="3"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Tuliskan deskripsi ketentuan di sini..."></textarea>
+    </div>
+    <div class="flex justify-end">
+      <button type="button" onclick="removeTerm(this)"
+        class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+        Hapus
+      </button>
+    </div>
+  `;
+  wrapper.appendChild(div);
+  termIndex++;
+}
+
+function removeTerm(btn) {
+  btn.closest('.term').remove();
+}
+</script>
 
 <script>
   const addImage = document.getElementById("add-image");

@@ -12,18 +12,23 @@
         @enderror
       </div>
       <div class="mb-5">
-        <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Lantai</label>
-        <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="floor" />
-        @error('floor')
-        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-        @enderror
-      </div>
-      <div class="mb-5">
-        <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Kapasitas</label>
-        <input type="number" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="capacity" />
-        @error('capacity')
-        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-        @enderror
+        <div class="grid gird-cols-1 grid-cols-2 gap-5">
+          <div>
+            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Lantai</label>
+            <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="floor" />
+            @error('floor')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+          </div>
+
+          <div>
+            <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Kapasitas</label>
+            <input type="number" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="capacity" />
+            @error('capacity')
+            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+          </div>
+        </div>
       </div>
       <div class="mb-5">
         <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Fasilitas</label>
@@ -63,42 +68,80 @@
         </details>
         @endforeach
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
-        <!-- Dropzone awal -->
-        <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
-          <!-- tombol hapus -->
-          <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
-            <i class="bi bi-trash"></i>
-          </button>
-
-          <!-- container preview -->
-          <div class="preview-container w-full h-full flex items-center justify-center"></div>
-
-          <!-- placeholder -->
-          <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
-            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-              <svg class="w-8 h-8 mb-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                />
-              </svg>
-              <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-              <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-            </div>
-            <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
-          </label>
-        </div>
-
-        <!-- tombol tambah -->
-        <div class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 flex flex-col items-center justify-center" id="add-image">
-          <i class="bi bi-plus-circle text-4xl"></i>
+      <div class="mb-5">
+        <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Photo</label>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
+          <!-- Dropzone awal -->
+          <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
+            <!-- tombol hapus -->
+            <button type="button" class="remove-btn absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-10">
+              <i class="bi bi-trash"></i>
+            </button>
+  
+            <!-- container preview -->
+            <div class="preview-container w-full h-full flex items-center justify-center"></div>
+  
+            <!-- placeholder -->
+            <label class="placeholder absolute inset-0 flex flex-col items-center justify-center cursor-pointer">
+              <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg class="w-8 h-8 mb-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                  />
+                </svg>
+                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+              </div>
+              <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
+            </label>
+          </div>
+  
+          <!-- tombol tambah -->
+          <div class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 flex flex-col items-center justify-center" id="add-image">
+            <i class="bi bi-plus-circle text-4xl"></i>
+          </div>
         </div>
       </div>
-
+      <div class="mb-5">
+        <h2 class="block mb-2 text-sm font-medium text-gray-900">Tambah Ketentuan</h2>
+        <div class="mx-auto p-1 rounded-xl">
+          <div id="terms-wrapper" class="space-y-6">
+            <!-- Term Item -->
+            <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div>
+                <label for="title-0" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+                <input type="text" id="title-0" name="terms[0][title]"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Contoh: Personil" required>
+              </div>
+  
+              <div>
+                <label for="desc-0" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+                <textarea id="desc-0" name="terms[0][description]" rows="3"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Tuliskan deskripsi ketentuan di sini..."></textarea>
+              </div>
+  
+              <div class="flex justify-end">
+                <button type="button" onclick="removeTerm(this)"
+                  class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+                  Hapus
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Tambah Ketentuan -->
+          <button type="button" onclick="addTerm()"
+            class="mt-6 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-blue-400 hover:text-blue-500 transition">
+            + Tambah Ketentuan
+          </button>
+        </div>
+      </div>
       <div class="mb-5">
         <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
         <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Dekripsikan..." name="description"></textarea>
@@ -112,6 +155,42 @@
     </button>
   </form>
 </div>
+
+<script>
+let termIndex = 1;
+
+function addTerm() {
+  const wrapper = document.getElementById('terms-wrapper');
+  const div = document.createElement('div');
+  div.className = "term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200";
+  div.innerHTML = `
+    <div>
+      <label for="title-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+      <input type="text" id="title-${termIndex}" name="terms[${termIndex}][title]"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Contoh: KTP" required>
+    </div>
+    <div>
+      <label for="desc-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+      <textarea id="desc-${termIndex}" name="terms[${termIndex}][description]" rows="3"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Tuliskan deskripsi ketentuan di sini..."></textarea>
+    </div>
+    <div class="flex justify-end">
+      <button type="button" onclick="removeTerm(this)"
+        class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+        Hapus
+      </button>
+    </div>
+  `;
+  wrapper.appendChild(div);
+  termIndex++;
+}
+
+function removeTerm(btn) {
+  btn.closest('.term').remove();
+}
+</script>
 
 <script>
   const addImage = document.getElementById("add-image");

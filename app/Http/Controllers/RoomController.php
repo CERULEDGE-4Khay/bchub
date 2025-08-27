@@ -46,6 +46,9 @@ class RoomController extends Controller
             'inventory_items' => 'nullable|array',
             'images'   => 'nullable|array',
             'images.*' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'terms'           => 'nullable|array',
+            'terms.*.title'   => 'required_with:terms|string|max:255',
+            'terms.*.description' => 'nullable|string',
         ]);
 
         DB::transaction(function () use ($validated, $request) {
@@ -54,6 +57,7 @@ class RoomController extends Controller
                 'description' => $validated['description'] ?? null,
                 'capacity'    => $validated['capacity'],
                 'floor'       => $validated['floor'],
+                'terms'       => $validated['terms'] ?? null,
             ]);
 
             if (!empty($validated['inventory_items'])) {
@@ -112,6 +116,9 @@ class RoomController extends Controller
             'floor'           => 'required|string',
             'inventory_items' => 'nullable|array',
             'images.*'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'terms'           => 'nullable|array',
+            'terms.*.title'   => 'required_with:terms|string|max:255',
+            'terms.*.description' => 'nullable|string',
         ]);
 
         DB::transaction(function () use ($validated, $room, $request) {
@@ -120,6 +127,7 @@ class RoomController extends Controller
                 'description' => $validated['description'] ?? null,
                 'capacity'    => $validated['capacity'],
                 'floor'       => $validated['floor'],
+                'terms'       => $validated['terms'] ?? null
             ]);
 
             // Reset dulu item lama jadi available
