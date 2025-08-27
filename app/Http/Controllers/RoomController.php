@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\InventoryItem;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,8 +24,11 @@ class RoomController extends Controller
      */
     public function create()
     {
-        $inventories = Inventory::all();
-        return view('dashboard.admin.room.create', compact('inventories'));
+        $inventoryItems = InventoryItem::with('inventory')
+            ->where('status', 'available')
+            ->get();
+
+        return view('dashboard.admin.room.create', compact('inventoryItems'));
     }
 
     /**
@@ -33,16 +37,14 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name'             => 'required|string|max:255',
-            'description'      => 'nullable|string',
-            'capacity'         => 'required|integer|min:1',
-            'floor'            => 'required|string',
-            'inventories'      => 'nullable|array',
-            'inventories_qty'  => 'nullable|array',
+            'name'            => 'required|string|max:255',
+            'description'     => 'nullable|string',
+            'capacity'        => 'required|integer|min:1',
+            'floor'           => 'required|string',
+            'inventory_items' => 'nullable|array',
         ]);
 
         DB::transaction(function () use ($validated) {
-            // Buat room baru
             $room = Room::create([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
@@ -50,19 +52,11 @@ class RoomController extends Controller
                 'floor'       => $validated['floor'],
             ]);
 
-            // Simpan pivot inventory_room
-            if (!empty($validated['inventories'])) {
-                $inventoriesToAttach = [];
+            if (!empty($validated['inventory_items'])) {
+                $room->inventoryItems()->attach($validated['inventory_items']);
 
-                foreach ($validated['inventories'] as $inventoryId => $checked) {
-                    $qty = $validated['inventories_qty'][$inventoryId] ?? 0;
-
-                    if ($qty > 0) {
-                        $inventoriesToAttach[$inventoryId] = ['quantity' => $qty];
-                    }
-                }
-
-                $room->inventories()->attach($inventoriesToAttach);
+                InventoryItem::whereIn('id', $validated['inventory_items'])
+                    ->update(['status' => 'in_use']);
             }
         });
 
@@ -83,12 +77,11 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        $inventories = Inventory::all();
+        $inventoryItems = InventoryItem::with('inventory', 'rooms')->get();
 
-        // bikin array [inventory_id => qty]
-        $roomInventories = $room->inventories->pluck('pivot.quantity', 'id')->toArray();
+        $roomItems = $room->inventoryItems->pluck('id')->toArray();
 
-        return view('dashboard.admin.room.edit', compact('room', 'inventories', 'roomInventories'));
+        return view('dashboard.admin.room.edit', compact('room', 'inventoryItems', 'roomItems'));
     }
 
     /**
@@ -97,16 +90,14 @@ class RoomController extends Controller
     public function update(Request $request, Room $room)
     {
         $validated = $request->validate([
-            'name'             => 'required|string|max:255',
-            'description'      => 'nullable|string',
-            'capacity'         => 'required|integer|min:1',
-            'floor'            => 'required|string',
-            'inventories'      => 'nullable|array',
-            'inventories_qty'  => 'nullable|array',
+            'name'            => 'required|string|max:255',
+            'description'     => 'nullable|string',
+            'capacity'        => 'required|integer|min:1',
+            'floor'           => 'required|string',
+            'inventory_items' => 'nullable|array',
         ]);
 
         DB::transaction(function () use ($validated, $room) {
-            // Update data room
             $room->update([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
@@ -114,26 +105,22 @@ class RoomController extends Controller
                 'floor'       => $validated['floor'],
             ]);
 
-            $inventoriesToSync = [];
+            // Reset dulu item lama jadi available
+            $oldItems = $room->inventoryItems()->pluck('inventory_items.id')->toArray();
+            InventoryItem::whereIn('id', $oldItems)->update(['status' => 'available']);
 
-            if (!empty($validated['inventories'])) {
-                foreach ($validated['inventories'] as $inventoryId => $checked) {
-                    $qty = $validated['inventories_qty'][$inventoryId] ?? 0;
+            // Sync pivot
+            $room->inventoryItems()->sync($validated['inventory_items'] ?? []);
 
-                    if ($qty > 0) {
-                        $inventoriesToSync[$inventoryId] = ['quantity' => $qty];
-                    }
-                }
+            // Update item baru jadi in_use
+            if (!empty($validated['inventory_items'])) {
+                InventoryItem::whereIn('id', $validated['inventory_items'])
+                    ->update(['status' => 'in_use']);
             }
-
-            // Sync pivot inventory_room
-            $room->inventories()->sync($inventoriesToSync);
         });
 
         return redirect()->route('rooms.index')->with('success', 'Room berhasil diperbarui.');
     }
-
-
 
     /**
      * Remove the specified resource from storage.

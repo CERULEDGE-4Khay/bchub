@@ -18,4 +18,9 @@ class InventoryItem extends Model
     {
         return $this->belongsTo(Inventory::class);
     }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class, 'inventory_room');
+    }
 }

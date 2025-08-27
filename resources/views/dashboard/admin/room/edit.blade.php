@@ -25,42 +25,49 @@
 
     {{-- Inventory --}}
     <div class="mb-5">
-      <label for="fasilitas" class="block mb-2 text-sm font-medium text-gray-900">Fasilitas</label>
-      <div class="overflow-x-auto rounded border">
+  <label for="fasilitas" class="block mb-2 text-sm font-medium text-gray-900">Fasilitas</label>
+  @foreach($inventoryItems->groupBy('inventory.name') as $category => $items)
+    <details class="mb-2 border rounded">
+      <summary class="cursor-pointer px-4 py-2 bg-gray-100 font-medium">{{ $category }}</summary>
+      <div class="overflow-x-auto">
         <table class="w-full text-sm text-left text-gray-700">
-          <thead class="text-xs uppercase bg-gray-100 text-gray-600">
+          <thead class="text-xs uppercase bg-gray-50 text-gray-600">
             <tr>
               <th class="px-4 py-2">Pilih</th>
-              <th class="px-4 py-2">Fasilitas</th>
-              <th class="px-4 py-2">Stok</th>
-              <th class="px-4 py-2">Stok Sisa</th>
-              <th class="px-4 py-2">Jumlah Dipakai</th>
+              <th class="px-4 py-2">Merek</th>
+              <th class="px-4 py-2">Serial</th>
+              <th class="px-4 py-2">Kondisi</th>
+              <th class="px-4 py-2">Status</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($inventories as $inventory) @php $checked = isset($roomInventories[$inventory->id]); $qty = $roomInventories[$inventory->id] ?? ''; @endphp
-            <tr class="border-b">
-              <td class="px-4 py-2">
-                <input type="checkbox" name="inventories[{{ $inventory->id }}]" value="1" {{ $checked ? 'checked' : '' }} class="w-4 h-4 text-blue-600 border-gray-300 rounded" />
-              </td>
-              <td class="px-4 py-2">
-                {{ $inventory->name }}
-              </td>
-              <td class="px-4 py-2">
-                {{ $inventory->quantity }}
-              </td>
-              <td class="px-4 py-2 text-center">
-                    {{ $inventory->available_stock }}
-                  </td>
-              <td class="px-4 py-2">
-                <input type="number" name="inventories_qty[{{ $inventory->id }}]" min="0" value="{{ $qty }}" class="w-20 p-1 text-sm border rounded" />
-              </td>
-            </tr>
+            @foreach($items as $item)
+              <tr class="border-b {{ $item->status !== 'available' && !in_array($item->id, $roomItems) ? 'bg-gray-100 text-gray-400' : '' }}">
+                <td class="px-4 py-2">
+                  @if($item->status === 'available' || in_array($item->id, $roomItems))
+                    <input 
+                      type="checkbox" 
+                      name="inventory_items[]" 
+                      value="{{ $item->id }}" 
+                      {{ in_array($item->id, $roomItems) ? 'checked' : '' }}>
+                  @else
+                    <span class="text-xs italic">Tidak tersedia</span>
+                  @endif
+                </td>
+                <td class="px-4 py-2">{{ $item->brand ?? '-' }}</td>
+                <td class="px-4 py-2">{{ $item->serial_number ?? '-' }}</td>
+                <td class="px-4 py-2">{{ ucfirst($item->condition) }}</td>
+                <td class="px-4 py-2">{{ ucfirst($item->status) }}</td>
+              </tr>
             @endforeach
           </tbody>
         </table>
       </div>
-    </div>
+    </details>
+  @endforeach
+</div>
+
+
 
     <!-- Deskripsi -->
     <div class="mb-4">

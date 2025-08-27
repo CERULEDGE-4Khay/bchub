@@ -24,4 +24,9 @@ class Room extends Model
     {
         return $this->hasMany(RoomImage::class);
     }
+
+    public function inventoryItems()
+    {
+        return $this->belongsToMany(InventoryItem::class, 'inventory_room');
+    }
 }
