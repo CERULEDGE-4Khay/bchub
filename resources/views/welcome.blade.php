@@ -677,7 +677,9 @@
         <div class="bg-white border border-gray-200 rounded-lg shadow-sm {{ $index >= 3 ? 'hidden extra-room' : '' }}">
           <a href="#">
             <div class="relative">
-              <img src="{{ asset('storage/' . $room->images[0]->image_url) }}"
+              <img src="{{ $room->images->isNotEmpty() 
+              ? asset('storage/' . $room->images->first()->image_url) 
+              : asset('images/default-room.jpg') }}"
                 alt="Room image"
                 class="w-full h-40 object-cover rounded-lg shadow" />
             </div>
