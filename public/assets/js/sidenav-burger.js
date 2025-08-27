@@ -16,29 +16,23 @@ if (sidenav && sidenav_trigger) {
     var bottom_bread = burger ? burger.lastElementChild : null;
 
     sidenav_trigger.addEventListener("click", function () {
-        if (window.page === "virtual-reality") {
-            sidenav.classList.toggle("xl:left-[18%]");
-        }
+        const expanded = sidenav.getAttribute("aria-expanded") === "true";
 
-        if (sidenav.getAttribute("aria-expanded") === "false") {
-            sidenav.setAttribute("aria-expanded", "true");
-        } else {
-            sidenav.setAttribute("aria-expanded", "false");
-        }
+        sidenav.setAttribute("aria-expanded", expanded ? "false" : "true");
 
         sidenav.classList.toggle("translate-x-0");
+        sidenav.classList.toggle("-translate-x-full");
         sidenav.classList.toggle("ml-6");
         sidenav.classList.toggle("shadow-xl");
 
         // Animasi burger
         if (top_bread && bottom_bread) {
-            if (window.page === "rtl") {
-                top_bread.classList.toggle("-translate-x-[5px]");
-                bottom_bread.classList.toggle("-translate-x-[5px]");
-            } else {
-                top_bread.classList.toggle("translate-x-[5px]");
-                bottom_bread.classList.toggle("translate-x-[5px]");
-            }
+            const direction =
+                window.page === "rtl"
+                    ? "-translate-x-[5px]"
+                    : "translate-x-[5px]";
+            top_bread.classList.toggle(direction);
+            bottom_bread.classList.toggle(direction);
         }
     });
 
