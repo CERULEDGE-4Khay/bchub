@@ -38,8 +38,14 @@ class BookingController extends Controller
             'requirements' => 'nullable|array',
         ]);
 
-        $start = Carbon::parse("{$validated['date']} {$validated['session']}");
-        $end   = $start->copy()->addHours(2);
+        $sessions = [
+            '09:00' => ['start' => '09:00', 'end' => '11:00'],
+            '11:00' => ['start' => '11:00', 'end' => '13:00'],
+            '13:00' => ['start' => '13:00', 'end' => '15:00'],
+        ];
+
+        $start = Carbon::parse("{$validated['date']} {$sessions[$validated['session']]['start']}", 'Asia/Jakarta');
+        $end   = Carbon::parse("{$validated['date']} {$sessions[$validated['session']]['end']}", 'Asia/Jakarta');
 
         DB::transaction(function () use ($room, $validated, $request, $start, $end) {
             $booking = $room->bookings()->create([
@@ -100,4 +106,23 @@ class BookingController extends Controller
     {
         //
     }
+
+    public function events(Room $room)
+    {
+        $bookings = $room->bookings()
+            ->where('status', 'approved')
+            ->get();
+
+        $events = $bookings->map(function ($booking) {
+            return [
+                'id'    => $booking->id,
+                'title' => $booking->user->name,
+                'start' => $booking->start_time,
+                'end'   => $booking->end_time,
+            ];
+        });
+
+        return response()->json($events);
+    }
+
 }

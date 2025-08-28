@@ -22,4 +22,19 @@ class AdminBookingController extends Controller
 
         return view('dashboard.admin.booking.show', compact('booking'));
     }
+
+    public function update(Request $request, Booking $booking)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,approved,rejected,completed'
+        ]);
+
+        $booking->update([
+            'status' => $request->status
+        ]);
+
+        return redirect()
+            ->route('bookings.index')
+            ->with('success', "Booking #{$booking->id} berhasil diupdate menjadi {$request->status}.");
+    }
 }

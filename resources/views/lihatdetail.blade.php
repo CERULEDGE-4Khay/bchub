@@ -285,54 +285,59 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+
 <script>
 const modal = document.getElementById("bookingModal");
 
-  function openModal() {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-  }
+function openModal() {
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
 
-  function closeModal() {
-    modal.classList.remove("flex");
-    modal.classList.add("hidden");
-  }
+function closeModal() {
+  modal.classList.remove("flex");
+  modal.classList.add("hidden");
+}
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const calendarEl = document.getElementById("calendar");
+document.addEventListener("DOMContentLoaded", function () {
+  const calendarEl = document.getElementById("calendar");
 
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: "listMonth",
-      locale: "id",
-      headerToolbar: {
-        left: "prev,next today",
-        center: "title",
-        right: "listMonth,dayGridMonth",
-      },
-      events: [],
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: "listMonth",
+    locale: "id",
+    timeZone: "Asia/Jakarta",
+    headerToolbar: {
+      left: "prev,next today",
+      center: "title",
+      right: "listMonth,dayGridMonth",
+    },
+    displayEventTime: true,
+    // 🔥 ambil event dari route Laravel
+    events: "{{ route('rooms.bookings.events', $room) }}",
 
-      dateClick: function (info) {
-        const dateStr = info.dateStr;
-        document.getElementById("bookingDate").value = dateStr;
+    dateClick: function (info) {
+      const dateStr = info.dateStr;
+      document.getElementById("bookingDate").value = dateStr;
 
-        // reset opsi sesi
-        const options = document.querySelectorAll("#bookingSession option");
-        options.forEach((opt) => (opt.disabled = false));
+      // reset opsi sesi
+      const options = document.querySelectorAll("#bookingSession option");
+      options.forEach((opt) => (opt.disabled = false));
 
-        // disable sesi yang sudah dipakai
-        const events = calendar.getEvents().filter((e) => e.startStr.startsWith(dateStr));
-        const takenSessions = events.map((e) => e.startStr.slice(11, 16));
+      // disable sesi yang sudah dipakai
+      const events = calendar.getEvents().filter((e) => e.startStr.startsWith(dateStr));
+      const takenSessions = events.map((e) => e.startStr.slice(11, 16));
 
-        takenSessions.forEach((sesi) => {
-          const opt = document.querySelector(`#bookingSession option[value="${sesi}"]`);
-          if (opt) opt.disabled = true;
-        });
+      takenSessions.forEach((sesi) => {
+        const opt = document.querySelector(`#bookingSession option[value="${sesi}"]`);
+        if (opt) opt.disabled = true;
+      });
 
-        openModal();
-      },
-    });
-
-    calendar.render();
+      openModal();
+    },
   });
+
+  calendar.render();
+});
 </script>
+
 @endsection

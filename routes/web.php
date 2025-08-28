@@ -16,6 +16,8 @@ Route::get('berita', function () {
 });
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
+Route::get('rooms/{room}/bookings/events', [BookingController::class, 'events'])
+    ->name('rooms.bookings.events');
 
 Route::prefix('dashboard')->middleware('auth')->group(function() {
     Route::get('/', function() {
