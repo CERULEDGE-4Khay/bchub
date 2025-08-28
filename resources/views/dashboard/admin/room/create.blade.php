@@ -70,7 +70,7 @@
       </div>
       <div class="mb-5">
         <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Photo</label>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-5" id="image-wrapper">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="image-wrapper">
           <!-- Dropzone awal -->
           <div class="dropzone relative flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 overflow-hidden">
             <!-- tombol hapus -->
@@ -93,8 +93,8 @@
                     d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                   />
                 </svg>
-                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                <p class="mb-2 text-sm text-gray-500 text-center"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                <p class="text-xs text-gray-500 text-center">PNG, JPG(MAX. 800x400px)</p>
               </div>
               <input type="file" class="dropzone-input hidden" accept="image/*" name="images[]" />
             </label>
@@ -108,24 +108,46 @@
       </div>
       <div class="mb-5">
         <h2 class="block mb-2 text-sm font-medium text-gray-900">Tambah Ketentuan</h2>
+        <div class="mb-2 text-sm text-gray-500">
+          <p class="mb-2">Gunakan bagian ini untuk menambahkan ketentuan khusus yang harus dipenuhi user saat melakukan booking.</p>
+          Setiap ketentuan bisa memiliki <strong>Tipe</strong> yang berbeda sesuai kebutuhan:
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Text</strong> → digunakan untuk input singkat, misalnya <em>"Nama Band"</em>, <em>"Jumlah Anggota"</em>, atau <em>"Nama Penanggung Jawab"</em>.</li>
+            <li><strong>Textarea</strong> → digunakan untuk keterangan yang lebih panjang, misalnya <em>"Daftar Lagu"</em>, <em>"Agenda Acara"</em>, atau <em>"Kebutuhan Tambahan"</em>.</li>
+            <li><strong>File</strong> → digunakan untuk mengunggah dokumen atau bukti, misalnya <em>"Surat Izin Kegiatan"</em>, <em>"KTP Penanggung Jawab"</em>, atau <em>"Proposal Acara"</em>.</li>
+            <li><strong>— Tidak ada input</strong> → jika hanya berupa informasi/pengingat tanpa harus diisi user, misalnya <em>"Dilarang membawa makanan dari luar"</em> atau <em>"Booking minimal 2 jam"</em>.</li>
+          </ul>
+          <p class="mt-2">Dengan begitu, ketentuan bisa lebih fleksibel sesuai jenis ruangan (misalnya Studio Musik, Aula, atau Meeting Room).</p>
+        </div>
         <div class="mx-auto p-1 rounded-xl">
           <div id="terms-wrapper" class="space-y-6">
             <!-- Term Item -->
             <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
               <div>
-                <label for="title-0" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+                <label for="title-0" class="block mb-2 text-sm font-medium text-gray-900">Nama Ketentuan</label>
                 <input type="text" id="title-0" name="terms[0][title]"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  placeholder="Contoh: Personil" required>
+                  placeholder="Contoh: Nama Band" required>
               </div>
-  
+
               <div>
-                <label for="desc-0" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+                <label for="desc-0" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Ketentuan</label>
                 <textarea id="desc-0" name="terms[0][description]" rows="3"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Tuliskan deskripsi ketentuan di sini..."></textarea>
               </div>
-  
+
+              <div>
+                <label for="type-0" class="block mb-2 text-sm font-medium text-gray-900">Tipe</label>
+                <select id="type-0" name="terms[0][type]"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option value="">>— Tidak ada input (hanya ketentuan) —</option>
+                  <option value="text">Text</option>
+                  <option value="textarea">Textarea</option>
+                  <option value="file">File</option>
+                </select>
+              </div>
+
               <div class="flex justify-end">
                 <button type="button" onclick="removeTerm(this)"
                   class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
@@ -134,7 +156,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Tambah Ketentuan -->
           <button type="button" onclick="addTerm()"
             class="mt-6 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-blue-400 hover:text-blue-500 transition">
@@ -143,7 +165,7 @@
         </div>
       </div>
       <div class="mb-5">
-        <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+        <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Ruangan</label>
         <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Dekripsikan..." name="description"></textarea>
         @error('description')
         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -161,36 +183,48 @@ let termIndex = 1;
 
 function addTerm() {
   const wrapper = document.getElementById('terms-wrapper');
-  const div = document.createElement('div');
-  div.className = "term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200";
-  div.innerHTML = `
-    <div>
-      <label for="title-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
-      <input type="text" id="title-${termIndex}" name="terms[${termIndex}][title]"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-        placeholder="Contoh: KTP" required>
-    </div>
-    <div>
-      <label for="desc-${termIndex}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
-      <textarea id="desc-${termIndex}" name="terms[${termIndex}][description]" rows="3"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-        placeholder="Tuliskan deskripsi ketentuan di sini..."></textarea>
-    </div>
-    <div class="flex justify-end">
-      <button type="button" onclick="removeTerm(this)"
-        class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
-        Hapus
-      </button>
+  const html = `
+    <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
+        <input type="text" name="terms[${termIndex}][title]"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+          placeholder="Contoh: Nama Band" required>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
+        <textarea name="terms[${termIndex}][description]" rows="3"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"></textarea>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Tipe</label>
+        <select name="terms[${termIndex}][type]"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option value="text">Text</option>
+          <option value="textarea">Textarea</option>
+          <option value="file">File</option>
+        </select>
+      </div>
+
+      <div class="flex justify-end">
+        <button type="button" onclick="removeTerm(this)"
+          class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+          Hapus
+        </button>
+      </div>
     </div>
   `;
-  wrapper.appendChild(div);
+  wrapper.insertAdjacentHTML('beforeend', html);
   termIndex++;
 }
 
-function removeTerm(btn) {
-  btn.closest('.term').remove();
+function removeTerm(el) {
+  el.closest('.term').remove();
 }
 </script>
+
 
 <script>
   const addImage = document.getElementById("add-image");

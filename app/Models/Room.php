@@ -9,10 +9,6 @@ class Room extends Model
 {
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'terms' => 'array',
-    ];
-
     public function inventories()
     {
         return $this->belongsToMany(Inventory::class, 'inventory_room')
@@ -33,5 +29,10 @@ class Room extends Model
     public function inventoryItems()
     {
         return $this->belongsToMany(InventoryItem::class, 'inventory_room');
+    }
+
+    public function requirements()
+    {
+        return $this->hasMany(RoomRequirement::class);
     }
 }

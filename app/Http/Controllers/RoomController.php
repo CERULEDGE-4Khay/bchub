@@ -46,9 +46,10 @@ class RoomController extends Controller
             'inventory_items' => 'nullable|array',
             'images'   => 'nullable|array',
             'images.*' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-            'terms'           => 'nullable|array',
-            'terms.*.title'   => 'required_with:terms|string|max:255',
+            'terms'       => 'nullable|array',
+            'terms.*.title'       => 'required|string|max:255',
             'terms.*.description' => 'nullable|string',
+            'terms.*.type'        => 'nullable|in:text,textarea,file',
         ]);
 
         DB::transaction(function () use ($validated, $request) {
@@ -59,6 +60,15 @@ class RoomController extends Controller
                 'floor'       => $validated['floor'],
                 'terms'       => $validated['terms'] ?? null,
             ]);
+
+            foreach ($validated['terms'] ?? [] as $term) {
+                $room->requirements()->create([
+                    'label'       => $term['title'],
+                    'description' => $term['description'] ?? null,
+                    'type'        => $term['type'] ?? null,
+                    'is_required' => true,
+                ]);
+            }
 
             if (!empty($validated['inventory_items'])) {
                 $room->inventoryItems()->attach($validated['inventory_items']);
@@ -101,6 +111,8 @@ class RoomController extends Controller
 
         $roomItems = $room->inventoryItems->pluck('id')->toArray();
 
+        $room->load('requirements');
+
         return view('dashboard.admin.room.edit', compact('room', 'inventoryItems', 'roomItems'));
     }
 
@@ -116,9 +128,10 @@ class RoomController extends Controller
             'floor'           => 'required|string',
             'inventory_items' => 'nullable|array',
             'images.*'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'terms'           => 'nullable|array',
-            'terms.*.title'   => 'required_with:terms|string|max:255',
+            'terms'       => 'nullable|array',
+            'terms.*.title'       => 'required|string|max:255',
             'terms.*.description' => 'nullable|string',
+            'terms.*.type'        => 'nullable|in:text,textarea,file',
         ]);
 
         DB::transaction(function () use ($validated, $room, $request) {
@@ -129,6 +142,27 @@ class RoomController extends Controller
                 'floor'       => $validated['floor'],
                 'terms'       => $validated['terms'] ?? null
             ]);
+
+            $existingIds = collect($validated['terms'] ?? [])->pluck('id')->filter()->toArray();
+            $room->requirements()->whereNotIn('id', $existingIds)->delete();
+
+            foreach ($validated['terms'] ?? [] as $term) {
+                if (!empty($term['id'])) {
+                    $room->requirements()->where('id', $term['id'])->update([
+                        'label'       => $term['title'],
+                        'description' => $term['description'] ?? null,
+                        'type'        => $term['type'] ?? null,
+                        'is_required' => true,
+                    ]);
+                } else {
+                    $room->requirements()->create([
+                        'label'       => $term['title'],
+                        'description' => $term['description'] ?? null,
+                        'type'        => $term['type'] ?? null,
+                        'is_required' => true,
+                    ]);
+                }
+            }
 
             // Reset dulu item lama jadi available
             $oldItems = $room->inventoryItems()->pluck('inventory_items.id')->toArray();
