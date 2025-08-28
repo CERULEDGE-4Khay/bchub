@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
 
         Route::resource('rooms', RoomController::class);
         Route::resource('inventories', InventoryController::class);
+        Route::resource('bookings', AdminBookingController::class)->only([
+            'index', 'show', 'update'
+        ]);
     });
 });
 

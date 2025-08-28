@@ -226,60 +226,59 @@
         </div>
 
         <form action="{{ route('rooms.bookings.store', $room) }}" id="bookingForm" method="POST" enctype="multipart/form-data" class="space-y-4">
-  @csrf
-  <div>
-    <label class="block text-sm font-medium">Tanggal</label>
-    <input type="text" id="bookingDate" name="date" readonly
-      class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-  </div>
+          @csrf
+          <div>
+            <label class="block text-sm font-medium">Tanggal</label>
+            <input type="text" id="bookingDate" name="date" readonly
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
 
-  <div>
-    <label class="block text-sm font-medium">Pilih Sesi</label>
-    <select id="bookingSession" name="session" required
-      class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-      <option value="">-- Pilih Sesi --</option>
-      <option value="09:00">09.00–11.00</option>
-      <option value="11:00">11.00–13.00</option>
-      <option value="13:00">13.00–15.00</option>
-    </select>
-  </div>
+          <div>
+            <label class="block text-sm font-medium">Pilih Sesi</label>
+            <select id="bookingSession" name="session" required
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+              <option value="">-- Pilih Sesi --</option>
+              <option value="09:00">09.00–11.00</option>
+              <option value="11:00">11.00–13.00</option>
+              <option value="13:00">13.00–15.00</option>
+            </select>
+          </div>
 
-  <div>
-    <label class="block text-sm font-medium">Atas Nama</label>
-    <input type="text" id="bookingNama" name="nama" required
-      class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-  </div>
+          <div>
+            <label class="block text-sm font-medium">Atas Nama</label>
+            <input type="text" id="bookingNama" name="nama" required
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
 
-  {{-- Dynamic Requirements --}}
-  @foreach($room->requirements as $req)
-    <div>
-      <label class="block text-sm font-medium">
-        {{ $req->label }}
-        @if($req->is_required) <span class="text-red-500">*</span> @endif
-      </label>
+          {{-- Dynamic Requirements --}}
+          @foreach($room->requirements as $req)
+            <div>
+              <label class="block text-sm font-medium">
+                {{ $req->label }}
+                @if($req->is_required) <span class="text-red-500">*</span> @endif
+              </label>
 
-      @if($req->type === 'text')
-        <input type="text" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
-          placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}>
-      @elseif($req->type === 'textarea')
-        <textarea name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300" rows="3"
-          placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}></textarea>
-      @elseif($req->type === 'file')
-        <input type="file" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
-          {{ $req->is_required ? 'required' : '' }}>
-      @else
-        <p class="text-gray-600 text-sm">{{ $req->description }}</p>
-      @endif
-    </div>
-  @endforeach
+              @if($req->type === 'text')
+                <input type="text" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
+                  placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}>
+              @elseif($req->type === 'textarea')
+                <textarea name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300" rows="3"
+                  placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}></textarea>
+              @elseif($req->type === 'file')
+                <input type="file" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
+                  {{ $req->is_required ? 'required' : '' }}>
+              @else
+                <p class="text-gray-600 text-sm">{{ $req->description }}</p>
+              @endif
+            </div>
+          @endforeach
 
-  <div class="flex justify-end pt-4 border-t">
-    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
-      Simpan Booking
-    </button>
-  </div>
-</form>
-
+          <div class="flex justify-end pt-4 border-t">
+            <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+              Simpan Booking
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
