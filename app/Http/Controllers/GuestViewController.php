@@ -15,7 +15,7 @@ class GuestViewController extends Controller
 
     public function roomDetail(Room $room)
     {
-        $room->load(['inventoryItems', 'images']);
+        $room->load(['inventoryItems', 'images', 'requirements']);
         return view('lihatdetail', compact('room'));
     }
 }

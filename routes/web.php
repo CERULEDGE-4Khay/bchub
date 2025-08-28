@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GuestViewController;
 use App\Http\Controllers\RoomController;
 
@@ -17,6 +19,8 @@ Route::get('artikel', function () {
 });
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
+Route::get('rooms/{room}/bookings/events', [BookingController::class, 'events'])
+    ->name('rooms.bookings.events');
 
 Route::prefix('dashboard')->middleware('auth')->group(function() {
     Route::get('/', function() {
@@ -30,17 +34,19 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
 
         Route::resource('rooms', RoomController::class);
         Route::resource('inventories', InventoryController::class);
+        Route::resource('bookings', AdminBookingController::class)->only([
+            'index', 'show', 'update'
+        ]);
     });
 });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('rooms.bookings', BookingController::class)->only([
+        'index', 'create', 'store', 'show'
+    ]);
 });
 
 // halaman setelah login

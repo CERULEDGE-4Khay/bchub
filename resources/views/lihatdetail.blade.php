@@ -225,28 +225,53 @@
           </button>
         </div>
 
-        <form id="bookingForm" class="space-y-4">
+        <form action="{{ route('rooms.bookings.store', $room) }}" id="bookingForm" method="POST" enctype="multipart/form-data" class="space-y-4">
+          @csrf
           <div>
             <label class="block text-sm font-medium">Tanggal</label>
-            <input type="text" id="bookingDate" readonly class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+            <input type="text" id="bookingDate" name="date" readonly
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
           </div>
+
           <div>
             <label class="block text-sm font-medium">Pilih Sesi</label>
-            <select id="bookingSession" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <select id="bookingSession" name="session" required
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
               <option value="">-- Pilih Sesi --</option>
               <option value="09:00">09.00–11.00</option>
               <option value="11:00">11.00–13.00</option>
               <option value="13:00">13.00–15.00</option>
             </select>
           </div>
+
           <div>
             <label class="block text-sm font-medium">Atas Nama</label>
-            <input type="text" id="bookingNama" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+            <input type="text" id="bookingNama" name="nama" required
+              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
           </div>
-          <div>
-            <label class="block text-sm font-medium">Nama Band</label>
-            <input type="text" id="bookingBand" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-          </div>
+
+          {{-- Dynamic Requirements --}}
+          @foreach($room->requirements as $req)
+            <div>
+              <label class="block text-sm font-medium">
+                {{ $req->label }}
+                @if($req->is_required) <span class="text-red-500">*</span> @endif
+              </label>
+
+              @if($req->type === 'text')
+                <input type="text" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
+                  placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}>
+              @elseif($req->type === 'textarea')
+                <textarea name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300" rows="3"
+                  placeholder="{{ $req->description }}" {{ $req->is_required ? 'required' : '' }}></textarea>
+              @elseif($req->type === 'file')
+                <input type="file" name="requirements[{{ $req->id }}]" class="w-full rounded-lg border-gray-300"
+                  {{ $req->is_required ? 'required' : '' }}>
+              @else
+                <p class="text-gray-600 text-sm">{{ $req->description }}</p>
+              @endif
+            </div>
+          @endforeach
 
           <div class="flex justify-end pt-4 border-t">
             <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
@@ -260,75 +285,59 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+
 <script>
-  const modal = document.getElementById("bookingModal");
+const modal = document.getElementById("bookingModal");
 
-  function openModal() {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-  }
+function openModal() {
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
 
-  function closeModal() {
-    modal.classList.remove("flex");
-    modal.classList.add("hidden");
-  }
+function closeModal() {
+  modal.classList.remove("flex");
+  modal.classList.add("hidden");
+}
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const calendarEl = document.getElementById("calendar");
+document.addEventListener("DOMContentLoaded", function () {
+  const calendarEl = document.getElementById("calendar");
 
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: "listMonth",
-      locale: "id",
-      headerToolbar: {
-        left: "prev,next today",
-        center: "title",
-        right: "listMonth,dayGridMonth",
-      },
-      events: [],
-      dateClick: function (info) {
-        const dateStr = info.dateStr;
-        document.getElementById("bookingDate").value = dateStr;
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: "listMonth",
+    locale: "id",
+    timeZone: "Asia/Jakarta",
+    headerToolbar: {
+      left: "prev,next today",
+      center: "title",
+      right: "listMonth,dayGridMonth",
+    },
+    displayEventTime: true,
+    // 🔥 ambil event dari route Laravel
+    events: "{{ route('rooms.bookings.events', $room) }}",
 
-        // reset opsi
-        const options = document.querySelectorAll("#bookingSession option");
-        options.forEach((opt) => (opt.disabled = false));
+    dateClick: function (info) {
+      const dateStr = info.dateStr;
+      document.getElementById("bookingDate").value = dateStr;
 
-        const events = calendar.getEvents().filter((e) => e.startStr.startsWith(dateStr));
+      // reset opsi sesi
+      const options = document.querySelectorAll("#bookingSession option");
+      options.forEach((opt) => (opt.disabled = false));
 
-        const takenSessions = events.map((e) => e.startStr.slice(11, 16));
+      // disable sesi yang sudah dipakai
+      const events = calendar.getEvents().filter((e) => e.startStr.startsWith(dateStr));
+      const takenSessions = events.map((e) => e.startStr.slice(11, 16));
 
-        takenSessions.forEach((sesi) => {
-          const opt = document.querySelector(`#bookingSession option[value="${sesi}"]`);
-          if (opt) opt.disabled = true;
-        });
-
-        openModal();
-      },
-    });
-
-    calendar.render();
-
-    document.getElementById("bookingForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const tanggal = document.getElementById("bookingDate").value;
-      const sesi = document.getElementById("bookingSession").value;
-      const nama = document.getElementById("bookingNama").value;
-      const band = document.getElementById("bookingBand").value;
-
-      const start = `${tanggal}T${sesi}:00`;
-      const endHour = parseInt(sesi.split(":")[0]) + 2;
-      const end = `${tanggal}T${endHour.toString().padStart(2, "0")}:00`;
-
-      calendar.addEvent({
-        title: `${band} / ${nama}`,
-        start: start,
-        end: end,
+      takenSessions.forEach((sesi) => {
+        const opt = document.querySelector(`#bookingSession option[value="${sesi}"]`);
+        if (opt) opt.disabled = true;
       });
 
-      closeModal();
-      e.target.reset();
-    });
+      openModal();
+    },
   });
+
+  calendar.render();
+});
 </script>
+
 @endsection

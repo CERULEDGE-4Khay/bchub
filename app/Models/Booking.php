@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'start_time' => 'datetime',
+        'end_time'   => 'datetime',
+    ];
     
     public function user()
     {
@@ -16,5 +21,10 @@ class Booking extends Model
     public function room()
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function requirementValues()
+    {
+        return $this->hasMany(BookingRequirementValue::class);
     }
 }
