@@ -17,4 +17,9 @@ class Booking extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+    public function requirementValues()
+    {
+        return $this->hasMany(BookingRequirementValue::class);
+    }
 }

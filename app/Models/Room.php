@@ -16,9 +16,9 @@ class Room extends Model
                     ->withTimestamps();
     }
 
-    public function booking()
+    public function bookings()
     {
-        return $this->hasOne(Booking::class);
+        return $this->hasMany(Booking::class);
     }
     
     public function images()
