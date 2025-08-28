@@ -2,7 +2,7 @@
 @section('content')
 
 {{-- hero --}}
-<section class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-br from-green-200 via-blue-200 to-purple-200 animate-gradient">
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-br from-green-200 via-blue-200 to-purple-200 animate-gradient mt-20">
   <!-- Animated particles background -->
   <div class="absolute inset-0 pointer-events-none">
     <div class="w-3 h-3 bg-white rounded-full opacity-30 animate-bounce-slow absolute top-10 left-1/4"></div>
@@ -10,7 +10,7 @@
   </div>
 
   <!-- Title -->
-  <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeInUp">
+  <h2 class="text-4xl md:text-6xl font-bold mt-6 mb-6 animate-fadeInUp">
     Seputar Informasi UPTD <br>
     <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">
       Seni, Kreativitas, dan Kebudayaan
@@ -18,14 +18,14 @@
   </h2>
 
   <!-- Search -->
-  <div class="flex w-full max-w-lg bg-white rounded-full shadow-lg overflow-hidden mb-6 animate-fadeInUp delay-200">
+  <div class="flex w-900 max-w-lg bg-white rounded-full shadow-lg overflow-hidden mb-6 animate-fadeInUp delay-200">
     <span class="flex items-center px-3 text-gray-400"><i class="fas fa-search"></i></span>
     <input type="text" placeholder="Cari Berita..." class="flex-1 px-4 py-3 outline-none"/>
     <button class="bg-blue-500 text-white px-6 py-3 hover:bg-blue-600">Search</button>
   </div>
 
   <!-- Categories -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 animate-fadeInUp delay-300">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 mb-5 animate-fadeInUp delay-300">
     <div class="p-4 bg-white rounded-xl shadow hover:scale-105 hover:bg-gradient-to-r hover:from-blue-400 hover:to-green-400 transition transform duration-300 text-center">
       🎭 <p class="mt-2 font-semibold">Bandung Creative HUB</p>
     </div>

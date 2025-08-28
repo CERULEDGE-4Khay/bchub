@@ -19,11 +19,11 @@
         style="background-color: rgba(0, 0, 0, 0.75)"
       >
         <div class="text-white px-6 md:px-12 container mx-auto">
-          <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+          <h1 class="text-5xl md:text-6xl sm:text-center font-extrabold mb-4">
             <span class="block text-sky-600">Welcome to</span>
             Bandung Creative Hub
           </h1>
-          <p class="text-lg md:text-2xl mb-6 text-gray-300">
+          <p class="text-lg md:text-2xl sm:text-center mb-6 text-gray-300">
             Mari bersama-sama membangun komunitas kreatif yang menginspirasi,
             <br />
             berbagi ide, dan mewujudkan impian besar untuk Bandung. Jangan
@@ -31,7 +31,7 @@
           </p>
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300"
+            class="text-gray-900 bg-white border flex mx-auto sm:justify-center border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300 w-fit"
             >Booking Sekarang!</a
           >
         </div>
@@ -320,7 +320,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-green-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-green-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-green-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -354,7 +354,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-green-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-green-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-green-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -388,7 +388,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-green-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-green-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-green-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -422,7 +422,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-green-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-green-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-green-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -456,7 +456,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-green-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-green-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-green-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -494,7 +494,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-red-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-red-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -528,7 +528,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-red-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-red-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -562,7 +562,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-red-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-red-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -596,7 +596,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-red-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-red-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -630,7 +630,7 @@
               class="flex md:flex-row bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-red-500"
             >
               <div
-                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg w-20 px-12 text-red-500"
+                class="w-fit flex justify-center items-center md:rounded-none md:rounded-s-lg px-12 text-red-500"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -153,11 +153,11 @@
 
 <!-- Bagian Ketentuan -->
 <div class="pt-5 pb-5">
-  <div class="max-w-5xl mx-auto px-6 py-12 mt-12 mb-12">
+  <div class="mx-auto px-6 py-12 mt-12 mb-12 border overflow-hidden relative">
     <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
 
     <!-- Jam Beroperasi -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-20 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 mb-12">
       <!-- Kiri -->
       <div class="col-span-4 flex items-start gap-3">
         <div class="text-2xl text-blue-900">
@@ -181,7 +181,7 @@
     </div>
 
     <!-- Kebijakan Lainnya -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-20 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 mb-12">
       <!-- Kiri -->
       <div class="col-span-4 flex items-start gap-3">
         <div class="text-2xl text-blue-900">
@@ -211,7 +211,7 @@
 
 <div class="">
   <div class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
+    <h2 class="text-2xl font-bold mb-10">Calendar</h2>
     <div class="overflow-x-auto rounded-lg shadow">
     <div id="calendar" class="min-w-[350px]"></div>
   </div>
