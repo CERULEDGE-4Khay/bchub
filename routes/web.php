@@ -12,6 +12,9 @@ Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->na
 Route::get('berita', function () {
     return view('berita');
 });
+Route::get('artikel', function () {
+    return view('artikel');
+});
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
 

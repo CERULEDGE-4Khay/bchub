@@ -211,7 +211,7 @@
 
 <div class="">
   <div class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-2xl font-bold mb-10">Calendar</h2>
+    <h2 class="text-2xl font-bold mb-10 text-center">Calendar</h2>
     <div class="overflow-x-auto rounded-lg shadow">
     <div id="calendar" class="min-w-[350px]"></div>
   </div>

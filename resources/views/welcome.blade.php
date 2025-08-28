@@ -31,7 +31,7 @@
           </p>
           <a
             href="#join-us"
-            class="text-gray-900 bg-white border flex mx-auto sm:justify-center border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300 w-fit"
+            class="text-gray-900 bg-white border flex mx-auto sm:justify-center border-gray-300 focus:outline-none hover:bg-sky-400 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300 w-fit"
             >Booking Sekarang!</a
           >
         </div>
@@ -81,7 +81,7 @@
     <section>
         <div class="container mx-auto px-6 py-12">
             <p
-            class="tracking-widest uppercase text-gray-500 mb-10 text-center text-2xl"
+            class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl"
             >
             17 SubSektor Ekonomi Kreatif!
             </p>
@@ -97,205 +97,205 @@
             <!-- 1 -->
             <swiper-slide>
                 <div
-                class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
+                class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
                 >
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">1</h3>
+                    <h3 class="text-lg md:text-lg">1</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">APLIKASI</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">APLIKASI</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 2 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">2</h3>
+                    <h3 class="text-lg md:text-lg">2</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">ARSITEKTUR</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">ARSITEKTUR</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 3 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">3</h3>
+                    <h3 class="text-lg md:text-lg">3</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN INTERIOR</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN INTERIOR</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 4 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">4</h3>
+                    <h3 class="text-lg md:text-lg">4</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN PRODUK</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN PRODUK</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 5 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">5</h3>
+                    <h3 class="text-lg md:text-lg">5</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">DESAIN KOMUNIKASI VISUAL</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN KOMUNIKASI VISUAL</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 6 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">6</h3>
+                    <h3 class="text-lg md:text-lg">6</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FILM, ANIMASI, DAN VIDEO</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FILM, ANIMASI, DAN VIDEO</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 7 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">7</h3>
+                    <h3 class="text-lg md:text-lg">7</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FASHION</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FASHION</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 8 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">8</h3>
+                    <h3 class="text-lg md:text-lg">8</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">FOTOGRAFI</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FOTOGRAFI</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 9 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">9</h3>
+                    <h3 class="text-lg md:text-lg">9</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">KULINER</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">KULINER</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 10 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">10</h3>
+                    <h3 class="text-lg md:text-lg">10</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">MUSIK</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">MUSIK</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 11 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">11</h3>
+                    <h3 class="text-lg md:text-lg">11</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PENERBITAN</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PENERBITAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 12 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">12</h3>
+                    <h3 class="text-lg md:text-lg">12</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PENGEMBANGAN PERMAINAN</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PENGEMBANGAN PERMAINAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 13 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">13</h3>
+                    <h3 class="text-lg md:text-lg">13</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">PERIKLANAN</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PERIKLANAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 14 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">14</h3>
+                    <h3 class="text-lg md:text-lg">14</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI KRIYA</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI KRIYA</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 15 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">15</h3>
+                    <h3 class="text-lg md:text-lg">15</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI PERTUNJUKKAN</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI PERTUNJUKKAN</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 16 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">16</h3>
+                    <h3 class="text-lg md:text-lg">16</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">SENI RUPA</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI RUPA</h5>
                 </div>
                 </div>
             </swiper-slide>
 
             <!-- 17 -->
             <swiper-slide>
-                <div class="flex h-32 w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
                 <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-4xl">17</h3>
+                    <h3 class="text-lg md:text-lg">17</h3>
                 </div>
                 <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900">TV DAN RADIO</h5>
+                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">TV DAN RADIO</h5>
                 </div>
                 </div>
             </swiper-slide>
@@ -308,7 +308,7 @@
     <section>
       <div class="container mx-auto px-6 py-12">
         <p
-          class="tracking-widest uppercase text-gray-500 text-center text-2xl mb-10"
+          class="tracking-widest uppercase text-gray-500 text-center text-md md:text-2xl mb-10"
         >
           Kegiatan yang bisa dan tidak bisa difasilitasi
         </p>
@@ -341,7 +341,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   WORKSHOP
                 </h5>
@@ -375,7 +375,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   CO-WORKER
                 </h5>
@@ -409,7 +409,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   EXHIBITION
                 </h5>
@@ -443,7 +443,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   MINI SHOWCASE
                 </h5>
@@ -477,7 +477,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   CLASS SESSION
                 </h5>
@@ -515,7 +515,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   Kegiatan diluar 17 Subsektor Ekonomi Kreatif.
                 </h5>
@@ -549,7 +549,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                 Bazaar yang melibatkan jual-beli Produk.
                 </h5>
@@ -583,7 +583,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   Pelantikan Organisasi, Komunitas, dsb.
                 </h5>
@@ -617,7 +617,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   Sekretariat Organisasi, Komunitas, dsb.
                 </h5>
@@ -651,7 +651,7 @@
 
               <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5
-                  class="mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                  class="mb-2 text-md md:text-lg font-bold tracking-tight text-gray-900"
                 >
                   Wisuda dan Perpisahan Sekolah ataupun Kampus.
                 </h5>
@@ -667,7 +667,7 @@
     {{-- list ruangan --}}
     <section>
   <div class="container mx-auto px-6 py-12">
-    <p class="tracking-widest uppercase text-gray-500 mb-10 text-center text-2xl">
+    <p class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl">
       List ruangan yang tersedia
     </p>
 

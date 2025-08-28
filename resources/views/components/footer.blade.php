@@ -13,7 +13,7 @@
           <div class="mb-6 md:mb-0">
             <a href="https://creativeculture.disbudpar.bandung.go.id/" class="flex items-center">
               <img
-                src="assets/images/logo-removebg-preview.png"
+                src="{{ asset('assets/images/logo-removebg-preview.png')}}"
                 class="h-8 me-3"
                 alt="FlowBite Logo"
               />
