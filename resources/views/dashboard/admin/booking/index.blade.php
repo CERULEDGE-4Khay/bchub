@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="max-w-7xl mx-auto px-6 py-8">
+<div class="mx-auto px-6 py-8">
   @if(session('success'))
     <div class="mb-4 p-4 rounded-lg bg-green-100 text-green-800">
       {{ session('success') }}
@@ -11,13 +11,13 @@
   <div class="bg-white shadow rounded-xl p-6">
     <h2 class="text-lg font-semibold mb-4">List Pengajuan Ruangan</h2>
 
-    <div class="overflow-x-auto">
+    <div class="">
       <table class="w-full border border-gray-200 text-sm text-left text-gray-600">
         <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
           <tr>
             <th class="px-4 py-3 border-b">#</th>
             <th class="px-4 py-3 border-b">Ruangan</th>
-            <th class="px-4 py-3 border-b">User</th>
+            <th class="px-4 py-3 border-b">Nama</th>
             <th class="px-4 py-3 border-b">Tanggal</th>
             <th class="px-4 py-3 border-b">Sesi</th>
             <th class="px-4 py-3 border-b">Status</th>

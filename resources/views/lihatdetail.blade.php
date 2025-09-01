@@ -153,7 +153,7 @@
 
 <!-- Bagian Ketentuan -->
 <div class="pt-5 pb-5">
-  <div class="mx-auto px-6 py-12 mt-12 mb-12 border overflow-hidden relative">
+  <div class="container mx-auto px-6 py-12 mt-12 mb-12 overflow-hidden relative">
     <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
 
     <!-- Jam Beroperasi -->
@@ -247,7 +247,7 @@
           <div>
             <label class="block text-sm font-medium">Atas Nama</label>
             <input type="text" id="bookingNama" name="nama" required
-              class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
+              class="mt-1 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ auth()->user()->name }}" disabled readonly/>
           </div>
 
           {{-- Dynamic Requirements --}}

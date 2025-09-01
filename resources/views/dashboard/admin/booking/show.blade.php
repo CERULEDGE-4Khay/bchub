@@ -30,7 +30,7 @@
               <li>
                 <span class="font-semibold">{{ $val->requirement->label }}:</span>
                 @if($val->requirement->type === 'file')
-                  <a href="{{ Storage::url($val->value) }}" target="_blank" class="text-indigo-600 underline">Lihat File</a>
+                  <a href="{{ asset('storage/' . $val->value) }}" target="_blank" class="text-indigo-600 underline">Lihat File</a>
                 @else
                   {{ $val->value ?? '-' }}
                 @endif
