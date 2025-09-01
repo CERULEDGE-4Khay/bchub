@@ -72,7 +72,7 @@ class BookingController extends Controller
             }
         });
 
-        return redirect()->route('rooms.bookings.index')->with('success', 'Booking berhasil diajukan!');
+        return redirect()->route('detai.room', $room)->with('success', 'Booking berhasil diajukan! Tunggu konfirmasi selanjutnya.');
     }
 
     /**
