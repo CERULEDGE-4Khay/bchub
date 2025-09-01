@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\AdminBookingController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,8 @@ Route::get('artikel', function () {
     return view('artikel');
 });
 
+
+
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
 Route::get('rooms/{room}/bookings/events', [BookingController::class, 'events'])
     ->name('rooms.bookings.events');
@@ -29,9 +32,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
     })->name('dashboard');
 
     Route::prefix('admin')->group(function() {
-        Route::get('/', function() {
-            return view('dashboard.admin.index');
-        })->name('dashboard.admin');
+        Route::get('/', [DashboardController::class,'index'])->name('dashboard.admin');
 
         Route::resource('rooms', RoomController::class);
         Route::resource('accounts', AdminAccountController::class);

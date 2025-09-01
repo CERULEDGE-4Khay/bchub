@@ -153,7 +153,7 @@
 
 <!-- Bagian Ketentuan -->
 <div class="pt-5 pb-5">
-  <div class="mx-auto px-6 py-12 mt-12 mb-12 border overflow-hidden relative">
+  <div class="container mx-auto px-6 py-12 mt-12 mb-12 border overflow-hidden relative">
     <h2 class="text-2xl font-bold mb-10">Ketentuan</h2>
 
     <!-- Jam Beroperasi -->

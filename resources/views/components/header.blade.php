@@ -78,8 +78,16 @@
                     <a href="artikel" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0">Artikel</a>
                 </li>
                 <li>
+                    @guest
                     <a href="{{ route('login') }}" class="text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Masuk</a>
+                    @else
+                    <form action="{{ route('logout')}}" method="post">
+                        @csrf
+                        <button class="text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center" type="submit">Keluar</button>
+                    </form>
+                    @endguest
                 </li>
+
             </ul>
         </div>
     </div>
