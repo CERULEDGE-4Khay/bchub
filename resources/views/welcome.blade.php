@@ -30,7 +30,7 @@
             lewatkan kesempatan untuk berkontribusi!
           </p>
           <a
-            href="#join-us"
+            href="login"
             class="text-gray-900 bg-white border flex mx-auto sm:justify-center border-gray-300 focus:outline-none hover:bg-sky-400 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300 w-fit"
             >Booking Sekarang!</a
           >
@@ -666,74 +666,74 @@
     </section>
     {{-- list ruangan --}}
     <section>
-  <div class="container mx-auto px-6 py-12">
-    <p class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl">
-      List ruangan yang tersedia
-    </p>
+      <div class="container mx-auto px-6 py-12">
+        <p class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl">
+          List ruangan yang tersedia
+        </p>
 
-    <!-- Grid -->
-    <div id="ruanganGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
-      @forelse ($rooms as $index => $room)
-        <div class="bg-white border border-gray-200 rounded-lg shadow-sm {{ $index >= 3 ? 'hidden extra-room' : '' }}">
-          <a href="#">
-            <div class="relative">
-              <img src="{{ $room->images->isNotEmpty() 
-              ? asset('storage/' . $room->images->first()->image_url) 
-              : asset('images/default-room.jpg') }}"
-                alt="Room image"
-                class="w-full h-40 object-cover rounded-lg shadow" />
+        <!-- Grid -->
+        <div id="ruanganGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          @forelse ($rooms as $index => $room)
+            <div class="bg-white border border-gray-200 rounded-lg shadow-sm {{ $index >= 3 ? 'hidden extra-room' : '' }}">
+              <a href="#">
+                <div class="relative">
+                  <img src="{{ $room->images->isNotEmpty() 
+                  ? asset('storage/' . $room->images->first()->image_url) 
+                  : asset('images/default-room.jpg') }}"
+                    alt="Room image"
+                    class="w-full h-40 object-cover rounded-lg shadow" />
+                </div>
+              </a>
+
+              <div class="p-5">
+                <a href="#">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    {{ $room->name }}
+                  </h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700">
+                  {{ $room->description }}
+                </p>
+
+                <div class="flex">
+                  <span class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
+                    {{ $room->capacity }} orang
+                  </span>
+                  <span class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
+                    ⭐ 4/5
+                  </span>
+                </div>
+
+                <a href="{{ route('detai.room', $room->id) }}"
+                  class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                  Lihat Detail
+                </a>
+              </div>
             </div>
-          </a>
-
-          <div class="p-5">
-            <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                {{ $room->name }}
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700">
-              {{ $room->description }}
-            </p>
-
-            <div class="flex">
-              <span class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
-                {{ $room->capacity }} orang
-              </span>
-              <span class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
-                ⭐ 4/5
-              </span>
-            </div>
-
-            <a href="{{ route('detai.room', $room->id) }}"
-              class="block text-white bg-clifford hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-              Lihat Detail
-            </a>
-          </div>
+          @empty
+            <p class="text-gray-500 italic">Tidak ada ruangan.</p>
+          @endforelse
         </div>
-      @empty
-        <p class="text-gray-500 italic">Tidak ada ruangan.</p>
-      @endforelse
-    </div>
 
-    {{-- tombol readmore --}}
-    @if ($rooms->count() > 3)
-      <div class="mt-10 flex justify-center">
-        <button id="loadMoreBtn"
-          class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 flex items-center gap-2">
-          Tampilkan lebih banyak
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-            fill="currentColor" class="bi bi-chevron-double-down"
-            viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-            <path fill-rule="evenodd"
-              d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-          </svg>
-        </button>
+        {{-- tombol readmore --}}
+        @if ($rooms->count() > 3)
+          <div class="mt-10 flex justify-center">
+            <button id="loadMoreBtn"
+              class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 flex items-center gap-2">
+              Tampilkan lebih banyak
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-chevron-double-down"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                <path fill-rule="evenodd"
+                  d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+              </svg>
+            </button>
+          </div>
+        @endif
       </div>
-    @endif
-  </div>
-</section>
+    </section>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const loadMoreBtn = document.getElementById("loadMoreBtn");
