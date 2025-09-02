@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GuestViewController;
 use App\Http\Controllers\RoomController;
+use App\Http\Middleware\MustBeAdmin;
 
 Route::get('/', [GuestViewController::class, 'welcome'])->name('welcome');
 Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->name('detai.room');
@@ -31,7 +32,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::prefix('admin')->group(function() {
+    Route::prefix('admin')->middleware(MustBeAdmin::class)->group(function() {
         Route::get('/', [DashboardController::class,'index'])->name('dashboard.admin');
 
         Route::resource('rooms', RoomController::class);
