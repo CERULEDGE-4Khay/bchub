@@ -202,6 +202,7 @@ function addTerm() {
         <label class="block mb-2 text-sm font-medium text-gray-900">Tipe</label>
         <select name="terms[${termIndex}][type]"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+          <option value="">>— Tidak ada input (hanya ketentuan) —</option>
           <option value="text">Text</option>
           <option value="textarea">Textarea</option>
           <option value="file">File</option>

@@ -219,7 +219,7 @@
     <div id="bookingModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
       <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
         <div class="flex justify-between items-center border-b pb-3 mb-4">
-          <h5 class="text-lg font-semibold">Booking Studio Musik</h5>
+          <h5 class="text-lg font-semibold">Booking {{ $room->name }}</h5>
           <button class="text-gray-500 hover:text-gray-700" onclick="closeModal()">
             ✕
           </button>
@@ -247,8 +247,27 @@
           <div>
             <label class="block text-sm font-medium">Atas Nama</label>
             <input type="text" id="bookingNama" name="nama" required
-              class="mt-1 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ auth()->user()->name }}" disabled readonly/>
+              class="mt-1 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed" value="{{ auth()->user()->name }}" disabled readonly/>
           </div>
+
+          <div>
+            <label for="ktp" class="block text-sm font-medium">KTP</label>
+            @if(auth()->user()->profile && auth()->user()->profile->ktp_path)
+              <input type="text" 
+                value="Sudah upload KTP"
+                class="w-full rounded-lg border-gray-300 bg-gray-100 cursor-not-allowed" 
+                readonly disabled>
+              
+              <a href="{{ asset('storage/' . auth()->user()->profile->ktp_path) }}" 
+                target="_blank" 
+                class="text-blue-600 underline text-sm">
+                Lihat KTP
+              </a>
+            @else
+              <input type="file" name="ktp" class="w-full rounded-lg border-gray-300" required>
+            @endif
+        </div>
+
 
           {{-- Dynamic Requirements --}}
           @foreach($room->requirements as $req)

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('ktp_path')->nullable();
+            $table->string('ktp_path');
             $table->string('job')->nullable();
             $table->string('address')->nullable();
-            $table->string('whatsapp_number')->nullable();
+            $table->string('phone_number')->nullable();
             $table->timestamps();
         });
     }

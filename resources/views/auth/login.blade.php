@@ -64,22 +64,22 @@
                     <label for="file">Upload KTP
                         <i style="color: red">*</i>
                     </label>
-                    <input type="file" id="file" name="file" required>
+                    <input type="file" id="file" name="ktp_path" required>
                 </div>
 
                 <div class="form-group">
                     <label for="pekerjaan">Pekerjaan</label>
-                    <input type="text" id="pekerjaan" name="pekerjaan" required>
+                    <input type="text" id="pekerjaan" name="job">
                 </div>
 
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <input type="text" id="alamat" name="alamat" required>
+                    <input type="text" id="alamat" name="address">
                 </div>
 
                 <div class="form-group">
                     <label for="nomor_wa">Nomor WhatsApp</label>
-                    <input type="number" id="nomor_wa" name="nomor_wa" required>
+                    <input type="number" id="nomor_wa" name="phone_number">
                 </div>
 
                 <button type="submit">Register</button>

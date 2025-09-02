@@ -11,7 +11,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GuestViewController;
 use App\Http\Controllers\RoomController;
 
-Route::get('/', [GuestViewController::class, 'welcome']);
+Route::get('/', [GuestViewController::class, 'welcome'])->name('welcome');
 Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->name('detai.room');
 Route::get('berita', function () {
     return view('berita');

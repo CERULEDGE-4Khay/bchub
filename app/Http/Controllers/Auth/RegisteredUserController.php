@@ -34,6 +34,10 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'ktp_path' => ['required', 'file', 'mimes:jpg,jpeg,png,pdf', 'max:2048'],
+            'job' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string'],
+            'phone_number' => ['nullable', 'string', 'max:20'],
         ]);
 
         $user = User::create([
@@ -42,10 +46,19 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $filePath = $request->file('ktp_path')->store('ktp', 'public');
+
+        $user->profile()->create([
+            'ktp_path' => $filePath,
+            'job' => $request->job,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number
+        ]);
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('welcome', absolute: false));
     }
 }
