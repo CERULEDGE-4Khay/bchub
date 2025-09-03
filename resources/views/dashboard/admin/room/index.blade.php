@@ -23,7 +23,7 @@
           <tr class="hover:bg-gray-50">
             <td class="px-4 py-2 font-medium text-gray-800">{{ $room->name }}</td>
             <td class="px-4 py-2">{{ $room->capacity }} Orang</td>
-            <td class="px-4 py-2">{{ $room->description ?? '-' }}</td>
+            <td class="px-4 py-2 max-w-xs whitespace-normal break-words">{{ $room->description ?? '-' }}</td>
             <td class="px-4 py-2 text-center">
               <a href="{{ route('rooms.edit', $room) }}"
                 class="inline-block px-3 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none">
