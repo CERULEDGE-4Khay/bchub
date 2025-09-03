@@ -11,21 +11,21 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\GuestViewController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Middleware\MustBeAdmin;
 
 Route::get('/', [GuestViewController::class, 'welcome'])->name('welcome');
 Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->name('detai.room');
-Route::get('berita', function () {
-    return view('berita');
-});
 // Route::get('artikel', function () {
 //     return view('artikel');
 // });
 // Route::get('artikel/{article}', [ArticleController::class, 'show'])->name('articles.public');
 // routes/web.php
+
 Route::get('artikel', [ArticleController::class, 'publicIndex'])->name('articles.public.index');
 Route::get('artikel/{article}', [ArticleController::class, 'publicShow'])->name('articles.public.show');
-
+Route::get('berita', [BeritaController::class, 'publicIndex'])->name('beritas.public.index');
+Route::get('berita/{berita}', [BeritaController::class, 'publicShow'])->name('beritas.public.show');
 
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
@@ -43,6 +43,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
         Route::resource('rooms', RoomController::class);
         Route::resource('accounts', AdminAccountController::class);
         Route::resource('articles', ArticleController::class);
+        Route::resource('beritas', BeritaController::class);
         Route::resource('inventories', InventoryController::class);
         Route::resource('bookings', AdminBookingController::class)->only([
             'index', 'show', 'update'
