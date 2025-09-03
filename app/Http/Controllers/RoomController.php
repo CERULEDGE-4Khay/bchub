@@ -181,9 +181,12 @@ class RoomController extends Controller
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('rooms', 'public');
-                    $room->images()->create(['path' => $path]);
+                    $room->images()->create([
+                        'image_url' => $path,
+                    ]);
                 }
             }
+
         });
 
         return redirect()->route('rooms.index')->with('success', 'Room berhasil diperbarui.');
