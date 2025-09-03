@@ -11,16 +11,24 @@
       <input type="text" name="name" value="{{ old('name', $room->name) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
     </div>
 
-    <!-- Kapasitas -->
-    <div class="mb-4">
-      <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Kapasitas</label>
-      <input type="number" name="capacity" value="{{ old('capacity', $room->capacity) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
-    </div>
+    <div class="mb-5">
+      <div class="grid gird-cols-1 grid-cols-2 gap-5">
+        <div>
+          <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Lantai</label>
+          <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="floor" value="{{ old('floor', $room->floor) }}" />
+          @error('floor')
+          <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
 
-    <!-- Lantai -->
-    <div class="mb-4">
-      <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900">Lantai</label>
-      <input type="text" name="floor" value="{{ old('floor', $room->floor) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        <div>
+          <label for="kapasitas" class="block mb-2 text-sm font-medium text-gray-900">Kapasitas</label>
+          <input type="number" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" name="capacity" value="{{ old('capacity', $room->capacity) }}" />
+          @error('capacity')
+          <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+        </div>
+      </div>
     </div>
 
     {{-- Inventory --}}
