@@ -72,10 +72,10 @@
                     </div>
                 </li>
                 <li>
-                    <a href="berita" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0">Berita</a>
+                    <a href="{{ route('beritas.public.index')}}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0">Berita</a>
                 </li>
                 <li>
-                    <a href="artikel" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0">Artikel</a>
+                    <a href="{{ route('articles.public.index')}}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0">Artikel</a>
                 </li>
                 <li>
                     @guest

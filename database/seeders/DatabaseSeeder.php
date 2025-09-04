@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Inventory;
 use App\Models\InventoryItem;
 use App\Models\Room;
+use Carbon\Carbon;
 use App\Models\RoomRequirement;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -259,5 +260,52 @@ foreach ($rooms as $roomData) {
         ]);
     }
 }
+ // Seeder untuk tabel articles
+        DB::table('articles')->insert([
+            [
+                'title' => 'Belajar Laravel Dasar',
+                'author' => 'Admin',
+                'published_at' => Carbon::now()->subDays(5),
+                'description' => 'Artikel ini membahas dasar-dasar Laravel untuk pemula.',
+                'image' => 'images/articles/laravel.jpg',
+                'status' => 'published',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Tips Membuat API dengan Laravel',
+                'author' => 'Khairan',
+                'published_at' => Carbon::now()->subDays(2),
+                'description' => 'Panduan membuat REST API menggunakan Laravel.',
+                'image' => 'images/articles/api.jpg',
+                'status' => 'draft',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+        // Seeder untuk tabel beritas
+        DB::table('beritas')->insert([
+            [
+                'title' => 'Festival Musik Bandung 2025',
+                'author' => 'Redaksi',
+                'published_at' => Carbon::now()->subDays(3),
+                'description' => 'Festival musik terbesar di Bandung resmi digelar tahun ini.',
+                'image' => 'images/berita/festival.jpg',
+                'status' => 'published',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Pameran Seni Rupa Nasional',
+                'author' => 'Jurnalis',
+                'published_at' => Carbon::now()->subDay(),
+                'description' => 'Pameran seni rupa menghadirkan karya dari seniman seluruh Indonesia.',
+                'image' => 'images/berita/seni.jpg',
+                'status' => 'draft',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

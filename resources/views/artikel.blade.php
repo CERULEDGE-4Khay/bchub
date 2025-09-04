@@ -58,7 +58,7 @@
               alt="{{ $article->title }}"
               class="w-full h-48 object-cover" />
           </a>
-          <div class="p-6 flex flex-col h-full">
+          <div class="p-6 flex flex-col">
             <a href="{{ route('articles.public.show', $article->id) }}">
               <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 line-clamp-2 hover:text-blue-600 transition">
                 {{ $article->title }}
@@ -69,13 +69,13 @@
             </p>
 
             <div class="flex items-center justify-between text-sm text-teal-500 mt-auto">
-              <span>AUTHOR: {{ $article->author ?? 'Admin' }}</span>
+              <span>Penulis: {{ $article->author ?? 'Admin' }}</span>
               <span>{{ optional($article->published_at)->format('d M Y') ?? '-' }}</span>
             </div>
 
 
             <a href="{{ route('articles.public.show', $article->id) }}"
-              class="mt-4 block text-center text-teal-400 bg-indigo-600 hover:bg-indigo-700 rounded-lg py-2 font-medium transition">
+              class="mt-4 block text-center text-white bg-teal-500 hover:bg-teal-700 rounded-lg py-2 font-medium transition">
               Baca Selengkapnya →
             </a>
 

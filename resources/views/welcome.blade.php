@@ -30,7 +30,7 @@
             lewatkan kesempatan untuk berkontribusi!
           </p>
           <a
-            href="login"
+            href="{{ (auth()->check()) ? '#ruangan' : 'login' }}"
             class="text-gray-900 bg-white border flex mx-auto sm:justify-center border-gray-300 focus:outline-none hover:bg-sky-400 focus:ring-4 focus:ring-gray-100 px-6 py-3 text-xl rounded-lg transition duration-300 w-fit"
             >Booking Sekarang!</a
           >
@@ -665,7 +665,7 @@
       </div>
     </section>
     {{-- list ruangan --}}
-    <section>
+    <section id="ruangan">
       <div class="container mx-auto px-6 py-12">
         <p class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl">
           List ruangan yang tersedia
