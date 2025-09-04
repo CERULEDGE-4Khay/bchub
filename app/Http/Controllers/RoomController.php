@@ -127,36 +127,62 @@ class RoomController extends Controller
             'capacity'        => 'required|integer|min:1',
             'floor'           => 'required|string',
             'inventory_items' => 'nullable|array',
+            'inventory_items.*' => 'integer|exists:inventory_items,id',
             'images.*'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'terms'       => 'nullable|array',
-            'terms.*.title'       => 'required|string|max:255',
+
+            // terms
+            'terms'               => 'nullable|array',
+            'terms.*.id'          => 'nullable|integer|exists:room_requirements,id',
+            'terms.*.title'       => 'sometimes|required|string|max:255',
             'terms.*.description' => 'nullable|string',
             'terms.*.type'        => 'nullable|in:text,textarea,file',
         ]);
 
+
         DB::transaction(function () use ($validated, $room, $request) {
+            // update data room (tanpa terms, karena itu relasi)
             $room->update([
                 'name'        => $validated['name'],
                 'description' => $validated['description'] ?? null,
                 'capacity'    => $validated['capacity'],
                 'floor'       => $validated['floor'],
-                'terms'       => $validated['terms'] ?? null
             ]);
 
-            $existingIds = collect($validated['terms'] ?? [])->pluck('id')->filter()->toArray();
-            $room->requirements()->whereNotIn('id', $existingIds)->delete();
+            // =====================
+            // HANDLE ROOM TERMS
+            // =====================
+            $existingIds = collect($validated['terms'] ?? [])
+                ->pluck('id')
+                ->filter()
+                ->toArray();
 
+            // Hapus terms lama yang tidak ada di request
+            if (!empty($existingIds)) {
+                $room->requirements()->whereNotIn('id', $existingIds)->delete();
+            } else {
+                // Kalau request kosong → hapus semua
+                $room->requirements()->delete();
+            }
+
+            // Update / Insert terms
             foreach ($validated['terms'] ?? [] as $term) {
+                // skip kalau kosong banget (tidak ada title & tidak ada id)
+                if (empty($term['title']) && empty($term['id'])) {
+                    continue;
+                }
+
                 if (!empty($term['id'])) {
+                    // update term lama
                     $room->requirements()->where('id', $term['id'])->update([
-                        'label'       => $term['title'],
+                        'label'       => $term['title'] ?? '', // kasih default
                         'description' => $term['description'] ?? null,
                         'type'        => $term['type'] ?? null,
                         'is_required' => true,
                     ]);
                 } else {
+                    // insert term baru
                     $room->requirements()->create([
-                        'label'       => $term['title'],
+                        'label'       => $term['title'] ?? '',
                         'description' => $term['description'] ?? null,
                         'type'        => $term['type'] ?? null,
                         'is_required' => true,
@@ -164,20 +190,23 @@ class RoomController extends Controller
                 }
             }
 
-            // Reset dulu item lama jadi available
+
+            // =====================
+            // HANDLE INVENTORY
+            // =====================
             $oldItems = $room->inventoryItems()->pluck('inventory_items.id')->toArray();
             InventoryItem::whereIn('id', $oldItems)->update(['status' => 'available']);
 
-            // Sync pivot
             $room->inventoryItems()->sync($validated['inventory_items'] ?? []);
 
-            // Update item baru jadi in_use
             if (!empty($validated['inventory_items'])) {
                 InventoryItem::whereIn('id', $validated['inventory_items'])
                     ->update(['status' => 'in_use']);
             }
 
-            // Simpan gambar baru
+            // =====================
+            // HANDLE IMAGES
+            // =====================
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
                     $path = $image->store('rooms', 'public');
@@ -186,11 +215,11 @@ class RoomController extends Controller
                     ]);
                 }
             }
-
         });
 
         return redirect()->route('rooms.index')->with('success', 'Room berhasil diperbarui.');
     }
+
 
     /**
      * Remove the specified resource from storage.

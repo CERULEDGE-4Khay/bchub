@@ -113,60 +113,60 @@
         <li><strong>— Tidak ada input</strong> → jika hanya berupa informasi/pengingat tanpa harus diisi user, misalnya <em>"Dilarang membawa makanan dari luar"</em> atau <em>"Booking minimal 2 jam"</em>.</li>
       </ul>
       <p class="mt-2">Dengan begitu, ketentuan bisa lebih fleksibel sesuai jenis ruangan (misalnya Studio Musik, Aula, atau Meeting Room).</p>
-    </div>
-    <div class="mx-auto p-1 rounded-xl">
-      <div id="terms-wrapper">
-        @if($room->requirements) @foreach($room->requirements as $i => $term)
-        <input type="hidden" name="terms[{{ $i }}][id]" value="{{ $term->id }}" />
-        <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
-          <div>
-            <label for="title-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Nama Ketentuan</label>
-            <input
-              type="text"
-              id="title-{{ $i }}"
-              name="terms[{{ $i }}][title]"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder="Contoh: Nama Band"
-              required
-              value="{{ $term->label }}"
-            />
+      <div class="mx-auto p-1 rounded-xl">
+        <div id="terms-wrapper" class="space-y-6">
+          @if($room->requirements) @foreach($room->requirements as $i => $term)
+          <input type="hidden" name="terms[{{ $i }}][id]" value="{{ $term->id }}" />
+          <div class="term space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <div>
+              <label for="title-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Nama Ketentuan</label>
+              <input
+                type="text"
+                id="title-{{ $i }}"
+                name="terms[{{ $i }}][title]"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Contoh: Nama Band"
+                required
+                value="{{ $term->label }}"
+              />
+            </div>
+  
+            <div>
+              <label for="desc-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Ketentuan</label>
+              <textarea
+                id="desc-{{ $i }}"
+                name="terms[{{ $i }}][description]"
+                rows="3"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Tuliskan deskripsi ketentuan di sini..."
+              >
+                {{ $term->description }}
+              </textarea>
+            </div>
+  
+            <div>
+              <label for="type-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Tipe</label>
+              <select id="type-{{ $i }}" name="terms[{{ $i }}][type]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option value="" {{ empty($term->type) ? 'selected' : '' }}>— Tidak ada input (hanya ketentuan) —</option>
+                <option value="text" {{ $term->type === 'text' ? 'selected' : '' }}>Text</option>
+                <option value="textarea" {{ $term->type === 'textarea' ? 'selected' : '' }}>Textarea</option>
+                <option value="file" {{ $term->type === 'file' ? 'selected' : '' }}>File</option>
+              </select>
+            </div>
+  
+            <div class="flex justify-end">
+              <button type="button" onclick="removeTerm(this)" class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
+                Hapus
+              </button>
+            </div>
           </div>
-
-          <div>
-            <label for="desc-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Deskripsi Ketentuan</label>
-            <textarea
-              id="desc-{{ $i }}"
-              name="terms[{{ $i }}][description]"
-              rows="3"
-              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Tuliskan deskripsi ketentuan di sini..."
-            >
-{{ $term->description }}
-            </textarea>
-          </div>
-
-          <div>
-            <label for="type-{{ $i }}" class="block mb-2 text-sm font-medium text-gray-900">Tipe</label>
-            <select id="type-{{ $i }}" name="terms[{{ $i }}][type]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-              <option value="" {{ empty($term->type) ? 'selected' : '' }}>— Tidak ada input (hanya ketentuan) —</option>
-              <option value="text" {{ $term->type === 'text' ? 'selected' : '' }}>Text</option>
-              <option value="textarea" {{ $term->type === 'textarea' ? 'selected' : '' }}>Textarea</option>
-              <option value="file" {{ $term->type === 'file' ? 'selected' : '' }}>File</option>
-            </select>
-          </div>
-
-          <div class="flex justify-end">
-            <button type="button" onclick="removeTerm(this)" class="px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100">
-              Hapus
-            </button>
-          </div>
+          @endforeach @endif
         </div>
-        @endforeach @endif
+  
+        <button type="button" onclick="addTerm()" class="mt-6 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-blue-400 hover:text-blue-500 transition">
+          + Tambah Ketentuan
+        </button>
       </div>
-
-      <button type="button" onclick="addTerm()" class="mt-6 w-full py-2.5 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-blue-400 hover:text-blue-500 transition">
-        + Tambah Ketentuan
-      </button>
     </div>
 
     <!-- Deskripsi -->

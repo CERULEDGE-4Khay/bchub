@@ -253,9 +253,9 @@
     <div id="calendar" class="min-w-[350px]"></div>
   </div>
     {{-- Modal :( --}}
-    <div id="bookingModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
+    <div id="bookingModal" class="fixed inset-0 hidden items-start justify-center bg-black/50 z-50 overflow-y-auto">
       @auth
-        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 mt-10 mb-10">
           <div class="flex justify-between items-center border-b pb-3 mb-4">
             <h5 class="text-lg font-semibold">Booking {{ $room->name }}</h5>
             <button class="text-gray-500 hover:text-gray-700" onclick="closeModal()">
@@ -338,7 +338,7 @@
           </form>
         </div>
       @else
-        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 mt-10 mb-10">
           <div class="flex justify-between items-center border-b pb-3 mb-4">
             <h5 class="text-lg font-semibold">Booking {{ $room->name }}</h5>
             <button class="text-gray-500 hover:text-gray-700" onclick="closeModal()">

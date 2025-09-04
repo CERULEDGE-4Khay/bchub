@@ -72,12 +72,10 @@
               <span>{{ optional($berita->published_at)->format('d M Y') ?? '-' }}</span>
             </div>
 
-
             <a href="{{ route('beritas.public.show', $berita->id) }}"
               class="mt-4 block text-center text-white bg-teal-500 hover:bg-teal-700 rounded-lg py-2 font-medium transition">
               Baca Selengkapnya →
             </a>
-
           </div>
         </div>
       @empty
