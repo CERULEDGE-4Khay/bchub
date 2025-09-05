@@ -700,7 +700,7 @@
                     {{ $room->capacity }} orang
                   </span>
                   <span class="flex items-center justify-center gap-1 flex-1 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
-                    ⭐ 4/5
+                      ⭐ {{ number_format($room->averageRating() ?? 0, 1) }}/5
                   </span>
                 </div>
 

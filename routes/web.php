@@ -27,6 +27,12 @@ Route::get('artikel', [ArticleController::class, 'publicIndex'])->name('articles
 Route::get('artikel/{article}', [ArticleController::class, 'publicShow'])->name('articles.public.show');
 Route::get('berita', [BeritaController::class, 'publicIndex'])->name('beritas.public.index');
 Route::get('berita/{berita}', [BeritaController::class, 'publicShow'])->name('beritas.public.show');
+
+Route::post('/rooms/{room}/rate', [\App\Http\Controllers\RatingController::class, 'store'])
+    ->middleware('auth')
+    ->name('rooms.rate');
+
+
 Route::get('/notifications', function () {
     return view('notifications.index', [
         'notifications' => auth()->user()->notifications

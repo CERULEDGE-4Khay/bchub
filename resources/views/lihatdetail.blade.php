@@ -8,8 +8,8 @@
     <p class="text-gray-600 mt-4">
       {{ $room->description }}
     </p>
-    <a href="#fasilitas" class="mt-6 bg-clifford hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow inline-block">
-      Lihat Fasilitas
+    <a href="#calendar" class="mt-6 bg-clifford hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow inline-block">
+      Lihat Jadwal
     </a>
   </div>
 
@@ -355,8 +355,101 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+@auth
+<div class="mt-12 bg-white shadow rounded-lg p-6">
+  <h3 class="text-xl font-semibold mb-4">Beri Rating Ruangan</h3>
 
+  <form action="{{ route('rooms.rate', $room->id) }}" method="POST" class="space-y-4">
+    @csrf
+    
+    <!-- Pilih Rating -->
+    <div>
+      <label class="block text-sm font-medium mb-2">Rating Anda</label>
+      <div class="flex items-center space-x-1" id="starRating">
+        @for($i=1; $i<=5; $i++)
+          <button type="button" data-value="{{ $i }}" class="star text-3xl text-gray-300 hover:text-yellow-400 transition">
+            ★
+          </button>
+        @endfor
+      </div>
+      <input type="hidden" name="rating" id="ratingInput" required>
+    </div>
+
+    <!-- Review -->
+    <div>
+      <label class="block text-sm font-medium mb-2">Review (opsional)</label>
+      <textarea name="review" rows="3"
+        class="w-full border rounded-lg p-3 focus:ring focus:ring-indigo-300"
+        placeholder="Ceritakan pengalamanmu menggunakan ruangan ini..."></textarea>
+    </div>
+
+    <!-- Submit -->
+    <div class="flex justify-end">
+      <button type="submit"
+        class="bg-indigo-600 text-white px-5 py-2 rounded-lg shadow hover:bg-indigo-700 transition">
+        Simpan Rating
+      </button>
+    </div>
+  </form>
+</div>
+@endauth
+
+<!-- Daftar Review -->
+<div class="mt-12">
+  <h3 class="text-xl font-semibold mb-6 pl-7">Ulasan Pengguna</h3>
+
+  @forelse ($room->ratings as $rating)
+    <div class="mb-6 p-4 bg-white rounded-lg shadow">
+      <div class="flex justify-between items-center mb-2">
+        <div class="flex items-center space-x-2">
+          <span class="font-semibold">{{ $rating->user->name }}</span>
+          <span class="text-sm text-gray-500">• {{ $rating->created_at->diffForHumans() }}</span>
+        </div>
+        <div class="flex">
+          @for($i=1; $i<=5; $i++)
+            <span class="text-lg {{ $i <= $rating->rating ? 'text-yellow-400' : 'text-gray-300' }}">★</span>
+          @endfor
+        </div>
+      </div>
+      @if($rating->review)
+        <p class="text-gray-700">{{ $rating->review }}</p>
+      @else
+        <p class="text-gray-400 italic">Tanpa komentar.</p>
+      @endif
+    </div>
+  @empty
+    <p class="text-gray-500 italic">Belum ada ulasan untuk ruangan ini.</p>
+  @endforelse
+</div>
+
+<!-- Script Bintang -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const stars = document.querySelectorAll("#starRating .star");
+    const ratingInput = document.getElementById("ratingInput");
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        const value = star.getAttribute("data-value");
+        ratingInput.value = value;
+
+        stars.forEach(s => {
+          s.classList.remove("text-yellow-400");
+          s.classList.add("text-gray-300");
+        });
+
+        for (let i = 0; i < value; i++) {
+          stars[i].classList.remove("text-gray-300");
+          stars[i].classList.add("text-yellow-400");
+        }
+      });
+    });
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
 <script>
 const modal = document.getElementById("bookingModal");
 
