@@ -45,8 +45,16 @@
         </dd>
       </div>
     </dl>
+    @if($booking->note)
+      <div class="py-3 flex justify-between">
+        <dt class="font-medium text-gray-600">
+          {{ $booking->status === 'approved' ? 'Catatan Admin' : 'Alasan Penolakan' }}
+        </dt>
+        <dd>{{ $booking->note }}</dd>
+      </div>
+    @endif
     {{-- Tombol Approve / Reject hanya muncul kalau belum approved --}}
-    @if($booking->status !== 'approved')
+    {{-- @if($booking->status !== 'approved')
       <div class="mt-6 flex gap-3">
         <form action="{{ route('bookings.update', $booking) }}" method="POST">
           @csrf
@@ -70,6 +78,35 @@
         <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-lg">
           ✅ Booking sudah di-approve
         </span>
+      </div>
+    @endif --}}
+
+
+    @if($booking->status === 'pending')
+      <div class="mt-6 flex gap-3">
+        <!-- Approve Form -->
+        <form action="{{ route('bookings.update', $booking) }}" method="POST" class="space-y-2">
+          @csrf
+          @method('PUT')
+          <input type="hidden" name="status" value="approved">
+          <textarea name="note" placeholder="Catatan (opsional)" 
+            class="w-full border rounded p-2 text-sm"></textarea>
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+            ✅ Approve
+          </button>
+        </form>
+
+        <!-- Reject Form -->
+        <form action="{{ route('bookings.update', $booking) }}" method="POST" class="space-y-2">
+          @csrf
+          @method('PUT')
+          <input type="hidden" name="status" value="rejected">
+          <textarea name="note" placeholder="Alasan penolakan" required 
+            class="w-full border rounded p-2 text-sm"></textarea>
+          <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+            ❌ Reject
+          </button>
+        </form>
       </div>
     @endif
 

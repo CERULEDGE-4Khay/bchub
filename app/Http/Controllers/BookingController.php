@@ -94,10 +94,22 @@ class BookingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Booking $booking)
-    {
-        //
-    }
+  public function update(Request $request, Booking $booking)
+{
+    $validated = $request->validate([
+        'status' => 'required|in:approved,rejected',
+        'note'   => 'nullable|string',
+    ]);
+
+    $booking->update([
+        'status' => $validated['status'],
+        'note'   => $validated['note'],
+    ]);
+
+    return redirect()->route('bookings.show', $booking)
+        ->with('success', 'Booking berhasil diperbarui!');
+}
+
 
     /**
      * Remove the specified resource from storage.
