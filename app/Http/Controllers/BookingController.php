@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Notifications\BookingStatusNotification;
 class BookingController extends Controller
 {
     /**
@@ -105,9 +105,12 @@ class BookingController extends Controller
         'status' => $validated['status'],
         'note'   => $validated['note'],
     ]);
+    $booking->user->notify(
+        new \App\Notifications\BookingStatusNotification($booking, $validated['note'] ?? null)
+    );
 
     return redirect()->route('bookings.show', $booking)
-        ->with('success', 'Booking berhasil diperbarui!');
+        ->with('success', 'Booking berhasil diperbarui dan notifikasi dikirim!');
 }
 
 

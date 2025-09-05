@@ -13,6 +13,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Middleware\MustBeAdmin;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [GuestViewController::class, 'welcome'])->name('welcome');
 Route::get('lihatdetail/{room}', [GuestViewController::class, 'roomDetail'])->name('detai.room');
@@ -26,7 +27,15 @@ Route::get('artikel', [ArticleController::class, 'publicIndex'])->name('articles
 Route::get('artikel/{article}', [ArticleController::class, 'publicShow'])->name('articles.public.show');
 Route::get('berita', [BeritaController::class, 'publicIndex'])->name('beritas.public.index');
 Route::get('berita/{berita}', [BeritaController::class, 'publicShow'])->name('beritas.public.show');
-
+Route::get('/notifications', function () {
+    return view('notifications.index', [
+        'notifications' => auth()->user()->notifications
+    ]);
+})->middleware('auth')->name('notifications.index');
+Route::post('/notifications/mark-all-read', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+    return back()->with('success', 'Semua notifikasi sudah ditandai sebagai dibaca.');
+})->middleware('auth')->name('notifications.markAllRead');
 
 Route::delete('/rooms/images/{image}', [RoomController::class, 'destroyImage'])->name('rooms.images.destroy');
 Route::get('rooms/{room}/bookings/events', [BookingController::class, 'events'])
@@ -57,10 +66,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('rooms.bookings', BookingController::class)->only([
-        'index', 'create', 'store', 'show'
-    ]);
+        'index', 'create', 'store', 'show']);
 });
+Route::middleware('auth')->group(function () {
+    Route::post('/notifications/{id}/read', function ($id) {
+        $notification = auth()->user()->notifications()->findOrFail($id);
+        $notification->markAsRead();
 
+        return response()->json(['success' => true]);
+    })->name('notifications.read');
+});
 // halaman setelah login
 Route::get('/dashboard', function () {
     return view('dashboard');

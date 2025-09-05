@@ -35,7 +35,6 @@
         <p class="text-gray-700">{{ $article->description }}</p>
       @endif
 
-      {{-- Jika kamu punya kolom 'content', tampilkan di sini. Jika tidak, hapus blok ini. --}}
       @isset($article->content)
         {!! nl2br(e($article->content)) !!}
       @endisset

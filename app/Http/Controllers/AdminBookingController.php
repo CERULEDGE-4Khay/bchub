@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
-
+use App\Notifications\BookingStatusNotification;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Log;
 class AdminBookingController extends Controller
 {
     public function index()
@@ -26,12 +28,22 @@ class AdminBookingController extends Controller
     public function update(Request $request, Booking $booking)
     {
         $request->validate([
-            'status' => 'required|in:pending,approved,rejected,completed'
+            'status' => 'required|in:pending,approved,rejected,completed',
+            'note'   => 'nullable|string',
         ]);
 
         $booking->update([
-            'status' => $request->status
+            'status' => $request->status,
+            'note'   => $validated['note'] ?? null,
         ]);
+
+          try {
+            $booking->user->notify(new BookingStatusNotification($booking, $validated['note'] ?? null));
+        } catch (\Throwable $e) {
+            Log::error('Notif booking gagal: '.$e->getMessage());
+            // (opsional) biar tetap ada in-app notif walau email gagal:
+            \Illuminate\Support\Facades\Notification::send($booking->user, new BookingStatusNotification($booking, $validated['note'] ?? null));
+        }
 
         return redirect()
             ->route('bookings.index')
