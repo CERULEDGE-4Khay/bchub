@@ -154,7 +154,7 @@
           </p>
           <p class="text-gray-700">Ruangan: {{ $notif->data['room'] }} ({{ $notif->data['date'] }})</p>
           @if(!empty($notif->data['note']))
-            <p class="text-gray-600 text-xs">Catatan: {{ $notif->data['note'] }}</p>
+            <p class="text-gray-700">Catatan: {{ $notif->data['note'] }}</p>
           @endif
           <small class="text-gray-400 text-xs">{{ $notif->created_at->diffForHumans() }}</small>
         </li>

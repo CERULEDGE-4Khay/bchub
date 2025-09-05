@@ -26,6 +26,50 @@
         </style>
     </head>
     <body>
+
+<!-- Tombol Scroll -->
+<div id="scrollBtns" class="fixed bottom-6 right-6 flex flex-col gap-3 z-50 hidden">
+  <!-- Scroll Up -->
+  <button onclick="scrollToTop()"
+    class="p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition">
+    <!-- Heroicon Up -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+         stroke-width="2" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+  
+  <!-- Scroll Down -->
+  <button onclick="scrollToBottom()"
+    class="p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 transition">
+    <!-- Heroicon Down -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+         stroke-width="2" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  document.addEventListener("scroll", () => {
+    const scrollBtns = document.getElementById("scrollBtns");
+    if (window.scrollY > 200) {
+      scrollBtns.classList.remove("hidden");
+    } else {
+      scrollBtns.classList.add("hidden");
+    }
+  });
+</script>
+
+
         {{-- Success Message --}}
         @if (session('success'))
         <div id="alert-success"
