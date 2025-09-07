@@ -1,5 +1,6 @@
 @extends('layouts.guest')
 @section('content')
+<script src="https://unpkg.com/lucide@latest"></script>
      <!-- Video Background Section -->
     <section
       class="relative w-full h-screen overflow-hidden backdrop-brightness-50"
@@ -48,7 +49,7 @@
           </p>
           <h2 class="text-3xl md:text-4xl font-bold leading-tight">
             Bandung
-            <span class="text-sky-600">Creative</span> Hub
+            <span class="text-sky-600 animate-pulse">Creative</span> Hub
           </h2>
           <p class="text-gray-600 mt-4">
             Merupakan wadah dan pusat kegiatan kreatif di Kota Bandung. Gedung
@@ -78,231 +79,221 @@
       </div>
     </section>
     {{-- 17 SEKTOR --}}
-    <section>
-        <div class="container mx-auto px-6 py-12">
-            <p
-            class="tracking-widest uppercase text-gray-500 mb-10 text-center text-md md:text-2xl"
-            >
-            17 SubSektor Ekonomi Kreatif!
-            </p>
+<section>
+  <div class="container mx-auto px-6 py-20 mb-3">
+    <p
+      class="tracking-widest uppercase text-gray-600 mb-10 text-center text-lg md:text-2xl font-semibold"
+    >
+      17 SubSektor Ekonomi Kreatif!
+    </p>
 
-            <swiper-container
-            class="mySwiper"
-            pagination="true"
-            pagination-clickable="true"
-            slides-per-view="3"
-            space-between="30"
-            free-mode="true"
-            >
-            <!-- 1 -->
-            <swiper-slide>
-                <div
-                class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
-                >
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">1</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">APLIKASI</h5>
-                </div>
-                </div>
-            </swiper-slide>
+    <swiper-container
+      class="mySwiper"
+      pagination="true"
+      pagination-clickable="true"
+      free-mode="true"
+      space-between="25"
+      slides-per-view="1"
+      breakpoints='{
+        "640": { "slidesPerView": 2, "spaceBetween": 20 },
+        "1024": { "slidesPerView": 4, "spaceBetween": 25 }
+      }'
+    >
 
-            <!-- 2 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">2</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">ARSITEKTUR</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 3 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">3</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN INTERIOR</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 4 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">4</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN PRODUK</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 5 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">5</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">DESAIN KOMUNIKASI VISUAL</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 6 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">6</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FILM, ANIMASI, DAN VIDEO</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 7 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">7</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FASHION</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 8 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">8</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">FOTOGRAFI</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 9 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">9</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">KULINER</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 10 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">10</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">MUSIK</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 11 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">11</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PENERBITAN</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 12 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">12</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PENGEMBANGAN PERMAINAN</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 13 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">13</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">PERIKLANAN</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 14 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">14</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI KRIYA</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 15 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">15</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI PERTUNJUKKAN</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 16 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">16</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">SENI RUPA</h5>
-                </div>
-                </div>
-            </swiper-slide>
-
-            <!-- 17 -->
-            <swiper-slide>
-                <div class="flex h-full w-full bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-                <div class="w-40 flex justify-center items-center bg-clifford text-white rounded-l-lg">
-                    <h3 class="text-lg md:text-lg">17</h3>
-                </div>
-                <div class="flex flex-col justify-center p-4 flex-1">
-                    <h5 class="text-md md:text-lg font-bold tracking-tight text-gray-900">TV DAN RADIO</h5>
-                </div>
-                </div>
-            </swiper-slide>
-            </swiper-container>
+      <!-- 1. Aplikasi -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-pink-500 to-red-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="smartphone"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">APLIKASI</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 1</p>
         </div>
-    </section>
+      </swiper-slide>
 
+      <!-- 2. Game -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="gamepad-2"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">GAME</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 2</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 3. Arsitektur -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="building"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">ARSITEKTUR</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 3</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 4. Desain Interior -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="sofa"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">DESAIN INTERIOR</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 4</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 5. Musik -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="music-2"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">MUSIK</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 5</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 6. Film -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-red-500 to-yellow-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="clapperboard"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">FILM</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 6</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 7. Fotografi -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="camera"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">FOTOGRAFI</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 7</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 8. Desain Produk -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-teal-500 to-green-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="package"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">DESAIN PRODUK</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 8</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 9. Fashion -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="shirt"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">FASHION</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 9</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 10. Animasi -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="film"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">ANIMASI</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 10</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 11. Kriya -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="hand"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">KRIYA</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 11</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 12. Kuliner -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-yellow-600 to-orange-600 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="utensils"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">KULINER</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 12</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 13. Penerbitan -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-gray-600 to-gray-800 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="book-open"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">PENERBITAN</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 13</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 14. Periklanan -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-pink-400 to-red-400 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="megaphone"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">PERIKLANAN</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 14</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 15. Seni Pertunjukan -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="theater"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">SENI PERTUNJUKAN</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 15</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 16. Seni Rupa -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-green-600 to-lime-600 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="palette"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">SENI RUPA</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 16</p>
+        </div>
+      </swiper-slide>
+
+      <!-- 17. Televisi & Radio -->
+      <swiper-slide>
+        <div class="flex flex-col items-center justify-center h-44 w-full bg-white rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-6 border border-gray-100">
+          <div class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-700 to-cyan-700 text-white text-2xl shadow-md mb-3 transform hover:rotate-6 transition-transform duration-300">
+            <i data-lucide="radio"></i>
+          </div>
+          <h5 class="text-base md:text-lg font-semibold text-gray-800 text-center">TELEVISI & RADIO</h5>
+          <p class="text-xs text-gray-500 mt-1">Subsektor 17</p>
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+  </div>
+</section>
+
+<script>
+  lucide.createIcons();
+</script>
 
     {{--fasilitas Bisa dan tidak bisa --}}
     <section>
